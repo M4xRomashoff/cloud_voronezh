@@ -1,0 +1,62 @@
+
+map $request_uri $proxy_uri {
+  ~*/http://(.*)/(.+)$  "http://$1/$2";
+  ~*/https://(.*)/(.+)$ "https://$1/$2";
+  ~*/http://(.*)$       "http://$1/";
+  ~*/https://(.*)$      "https://$1/";
+  ~*/(.*)/(.+)$         "https://$1/$2";
+  ~*/(.*)$              "https://$1/";
+  default               "";
+}
+
+map $proxy_uri $proxy_origin {
+  ~*(.*)/.*$ $1;
+  default    "";
+}
+
+map $remote_addr $proxy_forwarded_addr {
+  ~^[0-9.]+$        "for=$remote_addr";
+  ~^[0-9A-Fa-f:.]+$ "for=\"[$remote_addr]\"";
+  default           "for=unknown";
+}
+
+map $http_forwarded $proxy_add_forwarded {
+  ""      "$proxy_forwarded_addr";
+  default "$http_forwarded, $proxy_forwarded_addr";
+}
+
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /home/aph;
+
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name 79.174.93.48 www.79.174.93.48;
+   
+	 location / {
+	 # pass client to proxy
+         proxy_set_header Host                $proxy_host;
+         proxy_set_header Origin              $proxy_origin;
+         proxy_set_header X-Real-IP           $remote_addr;
+         proxy_set_header X-Client-IP         $remote_addr;
+ 
+         proxy_pass http://localhost:5000;
+         proxy_set_header Origin              $proxy_origin;
+         try_files $uri $uri/ =404;
+        
+        }
+	location /api/ {
+        # pass client to proxy
+        proxy_set_header Host                $proxy_host;
+        proxy_set_header Origin              $proxy_origin;
+        proxy_set_header X-Real-IP           $remote_addr;
+        proxy_set_header X-Client-IP         $remote_addr;
+
+        proxy_pass http://localhost:5000;
+        proxy_set_header Origin              $proxy_origin;
+    }
+
+
+}
