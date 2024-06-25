@@ -43,7 +43,7 @@ cron.schedule('5 1 * * *', () => { // 1 hrs 10 min at night
 
 
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5008;
 voron_server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });
@@ -54,5 +54,5 @@ const db = require("./app/modelsVoronezh");
 
 //Production MySql check !
 
-// db.sequelize.sync();
+db.sequelize.sync();
 

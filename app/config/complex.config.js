@@ -120,18 +120,20 @@ const COMPLEX =[
 ];
 
 const dbNames =[
-    {complex: 10, block: 1,  names: ['commonagro_12','t1']},
-    {complex: 10, block: 2,  names: ['commonagro_12','t2']},
-    {complex: 10, block: 3,  names: ['commonagro_12','t3']},
-    {complex: 10, block: 4,  names: ['commonagro_12','t4']},
-    {complex: 10, block: 5,  names: ['commonagro_12','t5']},
-    {complex: 10, block: 6,  names: ['commonagro_12','t6']},
-    {complex: 10, block: 7,  names: ['commonagro_12','t7']},
-    {complex: 10, block: 8,  names: ['commonagro_34','t8']},
-    {complex: 10, block: 9,  names: ['commonagro_34','t9']},
-    {complex: 10, block: 10, names: ['commonagro_34','t10']},
-    {complex: 10, block: 11, names: ['commonagro_34','t11']},
-    {complex: 10, block: 12, names: ['commonagro_34','t12']},
+    {complex: 8, block: 1,  names: ['commonagro_12','t1']},
+    {complex: 8, block: 2,  names: ['commonagro_12','t2']},
+    {complex: 8, block: 3,  names: ['commonagro_12','t3']},
+    {complex: 8, block: 4,  names: ['commonagro_12','t4']},
+    {complex: 8, block: 5,  names: ['commonagro_12','t5']},
+    {complex: 8, block: 6,  names: ['commonagro_345','t6']},
+    {complex: 8, block: 7,  names: ['commonagro_345','t7']},
+    {complex: 8, block: 8,  names: ['commonagro_345','t8']},
+    {complex: 8, block: 9,  names: ['commonagro_345','t9']},
+    {complex: 8, block: 10, names: ['commonagro_345','t10']},
+    {complex: 8, block: 11, names: ['commonagro_345','t11']},
+    {complex: 8, block: 12, names: ['commonagro_345','t12']},
+    {complex: 8, block: 13, names: ['commonagro_345','t13']},
+    {complex: 8, block: 14, names: ['commonagro_345','t14']},
 
 ]
 

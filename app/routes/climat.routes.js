@@ -52,39 +52,18 @@ module.exports = function(app) {
         controller.uploadAvgFile
     );
 
-    app.post(
-        "/api/climate/update",
-        [authJwt.verifyComplexToken],    controller.update
-    );
+    app.post( "/voronezh/api/climate/update",        [authJwt.verifyComplexToken],    controller.update    );
 
-    app.post(
-        "/api/climate/alarms",
-        [authJwt.verifyComplexToken],    controller.alarms
-    );
+    app.post( "/voronezh/api/climate/alarms",        [authJwt.verifyComplexToken],    controller.alarms    );
 
-    app.post(
-        "/api/climate/updateCO",
-        [authJwt.verifyComplexToken],    controller.updateCO
-    );
+    app.post( "/voronezh/api/climate/updateCO",      [authJwt.verifyComplexToken],    controller.updateCO    );
 
-    app.post(
-        "/api/climate/updateLight",
-        [authJwt.verifyComplexToken],    controller.updateLight
-    );
+    app.post( "/voronezh/api/climate/updateLight",   [authJwt.verifyComplexToken],    controller.updateLight    );
 
-    app.post(
-        "/api/climate/updateWater",
-        [authJwt.verifyComplexToken],    controller.updateWater
-    );
+    app.post( "/voronezh/api/climate/updateWater",   [authJwt.verifyComplexToken],    controller.updateWater    );
 
-    app.post(
-        "/api/climate/updateArtLight",
-        [authJwt.verifyComplexToken],    controller.updateArtLight
-    );
+    app.post( "/voronezh/api/climate/updateArtLight",[authJwt.verifyComplexToken],    controller.updateArtLight    );
 
-    app.post(
-        "/api/climate/updateSunRise",
-        [authJwt.verifyComplexToken],    controller.updateSunRise
-    );
+    app.post( "/voronezh/api/climate/updateSunRise", [authJwt.verifyComplexToken],    controller.updateSunRise    );
 };
 

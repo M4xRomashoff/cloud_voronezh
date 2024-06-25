@@ -1,4 +1,4 @@
-const config = require("../config/dbSolDarClimat.config");
+const config = require("../config/Voronezh.config");
 
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(
@@ -25,7 +25,7 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.commonAGRO_12 = require("./commonAGRO_12.js")(sequelize, Sequelize);
-db.commonAGRO_34 = require("./commonAGRO_34.js")(sequelize, Sequelize);
+db.commonAGRO_345 = require("./commonAGRO_345.js")(sequelize, Sequelize);
 
 db.t1 = require("./t1.js")(sequelize, Sequelize);
 db.t2 = require("./t2.js")(sequelize, Sequelize);
@@ -38,6 +38,8 @@ db.t8 = require("./t8.js")(sequelize, Sequelize);
 db.t9 = require("./t9.js")(sequelize, Sequelize);
 db.t10 = require("./t10.js")(sequelize, Sequelize);
 db.t11 = require("./t11.js")(sequelize, Sequelize);
+db.t12 = require("./t12.js")(sequelize, Sequelize);
+db.t13 = require("./t13.js")(sequelize, Sequelize);
 db.t12 = require("./t12.js")(sequelize, Sequelize);
 
 

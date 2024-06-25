@@ -5,8 +5,7 @@ const {log, names} = require("debug");
 const Averages = db.avgs;
 const Alarms = db.alarms;
 const {T1, T2, T3, T4, T5, T6, T7, T8, T9, T10,
-      T11, T12, T13, T14, T15, T16, T17, T18, T19, T20,
-      T21, T22, T23, T24, T25, T26, T27, T28,
+      T11, T12, T13, T14,
                                                 } = require('../config/constArrays');
 const fs = require("fs");
 const {parse} = require("csv-parse");
@@ -25,20 +24,7 @@ const blockNames = [
     { id: '12', table: T12},
     { id: '13', table: T13},
     { id: '14', table: T14},
-    { id: '15', table: T15},
-    { id: '16', table: T16},
-    { id: '17', table: T17},
-    { id: '18', table: T18},
-    { id: '19', table: T19},
-    { id: '20', table: T20},
-    { id: '21', table: T21},
-    { id: '22', table: T22},
-    { id: '23', table: T23},
-    { id: '24', table: T24},
-    { id: '25', table: T25},
-    { id: '26', table: T26},
-    { id: '27', table: T27},
-    { id: '28', table: T28},
+
 ]
 
 
