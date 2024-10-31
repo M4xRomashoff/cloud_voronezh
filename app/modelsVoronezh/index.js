@@ -8,6 +8,7 @@ const sequelize = new Sequelize(
     {
         host: config.HOST,
         dialect: config.dialect,
+        logging: false,
         pool: {
             max: config.pool.max,
             min: config.pool.min,
@@ -45,6 +46,7 @@ db.t12 = require("./t12.js")(sequelize, Sequelize);
 
 db.avgs = require("./avgs.js")(sequelize, Sequelize);
 db.alarms = require("./alarms.js")(sequelize, Sequelize);
+db.alarms_list = require("./alarmsList.model.js")(sequelize, Sequelize);
 
 
 module.exports = db;

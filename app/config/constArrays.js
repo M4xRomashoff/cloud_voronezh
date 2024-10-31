@@ -18,7 +18,7 @@ const commonAGRO_345 =[
 
 
 const T1 = [
-    {name: 'СО2',                        scad: 'M100.0N1R2.111V5',  column: 'co2',             value:'', dataType: 'co2'},
+    {name: 'СО2',                         scad: 'M100.0N1R2.111V5',   column: 'co2',            value:'', dataType: 'co2'},
 
     {name: 'отделение 111 температура 1', scad: 'M100.0N1R2.111V1',   column: 'section111_t',   value:'', dataType: 'temperature'},
     {name: 'отделение 111 ОВ',            scad: 'M100.0N1R2.111V2',   column: 'section111_ov',  value:'', dataType: 'humidity'},
@@ -371,7 +371,6 @@ const T11 = [
     {name: 'отделение 513 расч.отопл.',   scad: 'M100.0N1R4.513V3',   column: 'section513_th',  value:'', dataType: 'temperature'},
 ]
 
-
 const T12 = [
     {name: 'СО2',                        scad: 'M100.0N1R2.522V5',  column: 'co2',             value:'', dataType: 'co2'},
 
@@ -413,8 +412,6 @@ const T12 = [
 
 ]
 
-
-
 const T13 = [
     {name: 'СО2',                         scad: 'M100.0N1R2.412V5',   column: 'co2',             value:'', dataType: 'co2'},
 
@@ -454,8 +451,6 @@ const T13 = [
     {name: 'отделение 416 расч.темп. ',   scad: 'M100.0N1R4.416V1',   column: 'section416_tv',  value:'', dataType: 'temperature'},
     {name: 'отделение 416 расч.отопл.',   scad: 'M100.0N1R4.416V3',   column: 'section416_th',  value:'', dataType: 'temperature'},
 ]
-
-
 
 const T14 = [
     {name: 'СО2',                        scad: 'M100.0N1R2.422V5',  column: 'co2',             value:'', dataType: 'co2'},
@@ -500,813 +495,410 @@ const T14 = [
 
 
 
+const M4 = [
 
-//
-// const AGRO605_water =[
-//     {name: 'расход 1 1'          , scad: 'M432.1N1R4.1V1',   column: 'water_1_1'          , value:''},
-//     {name: 'расход 1 2'          , scad: 'M432.1N1R4.1V2',   column: 'water_1_2'          , value:''},
-//
-// ]
-//
-// const AGRO606_water =[
-//     {name: 'расход 2 1'          , scad: 'M432.1N1R4.1V1',   column: 'water_2_1'          , value:''},
-//     {name: 'расход 2 2'          , scad: 'M432.1N1R4.1V2',   column: 'water_2_2'          , value:''},
-//     {name: 'расход 6 1'          , scad: 'M432.1N1R4.6V1',   column: 'water_6_1'          , value:''},
-//     {name: 'расход 6 2'          , scad: 'M432.1N1R4.6V2',   column: 'water_6_2'          , value:''},
-//     {name: 'расход 7 1'          , scad: 'M432.1N1R4.4V1',   column: 'water_7_1'          , value:''},
-//     {name: 'расход 7 2'          , scad: 'M432.1N1R4.4V2',   column: 'water_7_2'          , value:''},
-// ]
-//
-// const AGRO607_water =[
-//     {name: 'расход 3 1'          , scad: 'M432.1N1R4.3V1',   column: 'water_3_1'          , value:''},
-//     {name: 'расход 3 2'          , scad: 'M432.1N1R4.3V2',   column: 'water_3_2'          , value:''},
-//     {name: 'расход 4 1'          , scad: 'M432.1N1R4.4V1',   column: 'water_4_1'          , value:''},
-//     {name: 'расход 4 2'          , scad: 'M432.1N1R4.4V2',   column: 'water_4_2'          , value:''},
-//     {name: 'расход 5 1'          , scad: 'M432.1N1R4.5V1',   column: 'water_5_1'          , value:''},
-//     {name: 'расход 5 2'          , scad: 'M432.1N1R4.5V2',   column: 'water_5_2'          , value:''},
-//     {name: 'расход 8 1'          , scad: 'M432.1N1R4.8V1',   column: 'water_8_1'          , value:''},
-//     {name: 'расход 8 2'          , scad: 'M432.1N1R4.8V2',   column: 'water_8_2'          , value:''},
-//     {name: 'расход 9 1'          , scad: 'M432.1N1R4.9V1',   column: 'water_9_1'          , value:''},
-//     {name: 'расход 9 2'          , scad: 'M432.1N1R4.9V2',   column: 'water_9_2'          , value:''},
-// ]
-//
-//
-// const AGRO605_10_co2 =[
-//     {name: 'дозация СО2 1'        , scad: 'M170.1N10R2.2V6',   column: 'co2_1'          , value:''},
-// ]
-//
-// const AGRO605_50_co2 =[
-//     {name: 'дозация СО2 5'        , scad: 'M170.1N50R2.2V6',   column: 'co2_5'          , value:''},
-// ]
-//
-// const AGRO606_20_co2 =[
-//     {name: 'дозация СО2 2'        , scad: 'M170.1N20R2.2V6',   column: 'co2_2'          , value:''},
-// ]
-//
-// const AGRO606_60_co2 =[
-//     {name: 'дозация СО2 6'        , scad: 'M170.1N60R2.2V6',   column: 'co2_6'          , value:''},
-// ]
-//
-// const AGRO606_70_co2 =[
-//     {name: 'дозация СО2 7'        , scad: 'M170.1N70R2.2V6',   column: 'co2_7'          , value:''},
-// ]
-//
-// const AGRO607_30_co2 =[
-//     {name: 'дозация СО2 3'        , scad: 'M170.1N30R2.2V6',   column: 'co2_3'          , value:''},
-// ]
-//
-// const AGRO607_40_co2 =[
-//     {name: 'дозация СО2 4'        , scad: 'M170.1N40R2.2V6',   column: 'co2_4'           , value:''},
-// ]
-//
-// const AGRO607_80_co2 =[
-//     {name: 'дозация СО2 8'        , scad: 'M170.1N80R2.2V6',   column: 'co2_8'           , value:''},
-// ]
-//
-// const AGRO607_90_co2 =[
-//     {name: 'дозация СО2 9'        , scad: 'M170.1N90R2.2V6',   column: 'co2_9'           , value:''},
-// ]
-//
-//
-//
-// const AGRO605_light =[
-//     {name: 'свет 11 контур 1a'      , scad: 'M203.1N1R3.11V1',    column: 'lamp_11_c1a'         , value:''},
-//     {name: 'свет 11 контур 1b'      , scad: 'M203.1N1R3.11V2',    column: 'lamp_11_c1b'         , value:''},
-//     {name: 'свет 11 контур 2c'      , scad: 'M203.1N1R3.11V3',    column: 'lamp_11_c2c'         , value:''},
-//     {name: 'свет 11 контур 2d'      , scad: 'M203.1N1R3.11V4',    column: 'lamp_11_c2d'         , value:''},
-//
-//     {name: 'свет 12 контур 1a'      , scad: 'M203.1N1R3.12V1',    column: 'lamp_12_c1a'         , value:''},
-//     {name: 'свет 12 контур 1b'      , scad: 'M203.1N1R3.12V2',    column: 'lamp_12_c1b'         , value:''},
-//     {name: 'свет 12 контур 2c'      , scad: 'M203.1N1R3.12V3',    column: 'lamp_12_c2c'         , value:''},
-//     {name: 'свет 12 контур 2d'      , scad: 'M203.1N1R3.12V4',    column: 'lamp_12_c2d'         , value:''},
-//
-//     {name: 'свет 13 контур 1a'      , scad: 'M203.1N1R3.13V1',    column: 'lamp_13_c1a'         , value:''},
-//     {name: 'свет 13 контур 1b'      , scad: 'M203.1N1R3.13V2',    column: 'lamp_13_c1b'         , value:''},
-//     {name: 'свет 13 контур 2c'      , scad: 'M203.1N1R3.13V3',    column: 'lamp_13_c2c'         , value:''},
-//     {name: 'свет 13 контур 2d'      , scad: 'M203.1N1R3.13V4',    column: 'lamp_13_c2d'         , value:''},
-//
-//     {name: 'свет 14 контур 1a'      , scad: 'M203.1N1R3.14V1',    column: 'lamp_14_c1a'         , value:''},
-//     {name: 'свет 14 контур 1b'      , scad: 'M203.1N1R3.14V2',    column: 'lamp_14_c1b'         , value:''},
-//     {name: 'свет 14 контур 2c'      , scad: 'M203.1N1R3.14V3',    column: 'lamp_14_c2c'         , value:''},
-//     {name: 'свет 14 контур 2d'      , scad: 'M203.1N1R3.14V4',    column: 'lamp_14_c2d'         , value:''},
-//
-//     {name: 'свет 51 контур 1a'      , scad: 'M203.1N1R3.51V1',    column: 'lamp_51_c1a'         , value:''},
-//     {name: 'свет 51 контур 1b'      , scad: 'M203.1N1R3.51V2',    column: 'lamp_51_c1b'         , value:''},
-//     {name: 'свет 51 контур 2c'      , scad: 'M203.1N1R3.51V3',    column: 'lamp_51_c2c'         , value:''},
-//     {name: 'свет 51 контур 2d'      , scad: 'M203.1N1R3.51V3',    column: 'lamp_51_c2d'         , value:''},
-//
-//     {name: 'свет 52 контур 1a'      , scad: 'M203.1N1R3.52V1',    column: 'lamp_52_c1a'         , value:''},
-//     {name: 'свет 52 контур 1b'      , scad: 'M203.1N1R3.52V2',    column: 'lamp_52_c1b'         , value:''},
-//     {name: 'свет 52 контур 2c'      , scad: 'M203.1N1R3.52V3',    column: 'lamp_52_c2c'         , value:''},
-//     {name: 'свет 52 контур 2d'      , scad: 'M203.1N1R3.52V3',    column: 'lamp_52_c2d'         , value:''},
-//
-// ]
-//
-// const AGRO606_light =[
-//     {name: 'свет 21 контур 1a'      , scad: 'M203.1N1R3.21V1',    column: 'lamp_21_c1a'         , value:''},
-//     {name: 'свет 21 контур 1b'      , scad: 'M203.1N1R3.21V2',    column: 'lamp_21_c1b'         , value:''},
-//     {name: 'свет 21 контур 2c'      , scad: 'M203.1N1R3.21V4',    column: 'lamp_21_c2c'         , value:''},
-//     {name: 'свет 21 контур 2d'      , scad: 'M203.1N1R3.21V4',    column: 'lamp_21_c2d'         , value:''},
-//
-//     {name: 'свет 22 контур 1a'      , scad: 'M203.1N1R3.22V1',    column: 'lamp_22_c1a'         , value:''},
-//     {name: 'свет 22 контур 1b'      , scad: 'M203.1N1R3.22V2',    column: 'lamp_22_c1b'         , value:''},
-//     {name: 'свет 22 контур 2c'      , scad: 'M203.1N1R3.22V3',    column: 'lamp_22_c2c'         , value:''},
-//     {name: 'свет 22 контур 2d'      , scad: 'M203.1N1R3.22V4',    column: 'lamp_22_c2d'         , value:''},
-//
-//     {name: 'свет 23 контур 1a'      , scad: 'M203.1N1R3.23V1',    column: 'lamp_23_c1a'         , value:''},
-//     {name: 'свет 23 контур 1b'      , scad: 'M203.1N1R3.23V2',    column: 'lamp_23_c1b'         , value:''},
-//     {name: 'свет 21 контур 2c'      , scad: 'M203.1N1R3.23V3',    column: 'lamp_23_c2c'         , value:''},
-//     {name: 'свет 23 контур 2d'      , scad: 'M203.1N1R3.23V4',    column: 'lamp_23_c2d'         , value:''},
-//
-//     {name: 'свет 24 контур 1a'      , scad: 'M203.1N1R3.24V1',    column: 'lamp_24_c1a'         , value:''},
-//     {name: 'свет 24 контур 1b'      , scad: 'M203.1N1R3.24V2',    column: 'lamp_24_c1b'         , value:''},
-//     {name: 'свет 24 контур 2c'      , scad: 'M203.1N1R3.24V3',    column: 'lamp_24_c2c'         , value:''},
-//     {name: 'свет 24 контур 2d'      , scad: 'M203.1N1R3.24V4',    column: 'lamp_24_c2d'         , value:''},
-//
-//     {name: 'свет 61 контур 1a'      , scad: 'M203.1N1R3.61V1',    column: 'lamp_61_c1a'         , value:''},
-//     {name: 'свет 61 контур 1b'      , scad: 'M203.1N1R3.61V2',    column: 'lamp_61_c1b'         , value:''},
-//     {name: 'свет 61 контур 2c'      , scad: 'M203.1N1R3.61V3',    column: 'lamp_61_c2c'         , value:''},
-//     {name: 'свет 61 контур 2d'      , scad: 'M203.1N1R3.61V4',    column: 'lamp_61_c2d'         , value:''},
-//
-//     {name: 'свет 62 контур 1a'      , scad: 'M203.1N1R3.62V1',    column: 'lamp_62_c1a'         , value:''},
-//     {name: 'свет 62 контур 1b'      , scad: 'M203.1N1R3.62V2',    column: 'lamp_62_c1b'         , value:''},
-//     {name: 'свет 62 контур 2c'      , scad: 'M203.1N1R3.62V3',    column: 'lamp_62_c2c'         , value:''},
-//     {name: 'свет 62 контур 2d'      , scad: 'M203.1N1R3.62V4',    column: 'lamp_62_c2d'         , value:''},
-//
-//     {name: 'свет 63 контур 1a'      , scad: 'M203.1N1R3.63V1',    column: 'lamp_63_c1a'         , value:''},
-//     {name: 'свет 63 контур 1b'      , scad: 'M203.1N1R3.63V2',    column: 'lamp_63_c1b'         , value:''},
-//     {name: 'свет 63 контур 2c'      , scad: 'M203.1N1R3.63V3',    column: 'lamp_63_c2c'         , value:''},
-//     {name: 'свет 63 контур 2d'      , scad: 'M203.1N1R3.63V4',    column: 'lamp_63_c2d'         , value:''},
-//
-//     {name: 'свет 71 контур 1a'      , scad: 'M203.1N1R3.71V1',    column: 'lamp_71_c1a'         , value:''},
-//     {name: 'свет 71 контур 1b'      , scad: 'M203.1N1R3.71V2',    column: 'lamp_71_c1b'         , value:''},
-//     {name: 'свет 71 контур 2c'      , scad: 'M203.1N1R3.71V3',    column: 'lamp_71_c2c'         , value:''},
-//     {name: 'свет 71 контур 2d'      , scad: 'M203.1N1R3.71V4',    column: 'lamp_71_c2d'         , value:''},
-//
-//     {name: 'свет 72 контур 1a'      , scad: 'M203.1N1R3.72V1',    column: 'lamp_72_c1a'         , value:''},
-//     {name: 'свет 72 контур 1b'      , scad: 'M203.1N1R3.72V2',    column: 'lamp_72_c1b'         , value:''},
-//     {name: 'свет 72 контур 2c'      , scad: 'M203.1N1R3.72V3',    column: 'lamp_72_c2c'         , value:''},
-//     {name: 'свет 72 контур 2d'      , scad: 'M203.1N1R3.72V4',    column: 'lamp_72_c2d'         , value:''},
-//
-//     {name: 'свет 73 контур 1a'      , scad: 'M203.1N1R3.73V1',    column: 'lamp_73_c1a'         , value:''},
-//     {name: 'свет 73 контур 1b'      , scad: 'M203.1N1R3.73V2',    column: 'lamp_73_c1b'         , value:''},
-//     {name: 'свет 73 контур 2c'      , scad: 'M203.1N1R3.73V3',    column: 'lamp_73_c2c'         , value:''},
-//     {name: 'свет 73 контур 2d'      , scad: 'M203.1N1R3.73V4',    column: 'lamp_73_c2d'         , value:''},
-// ]
-//
-// const AGRO607_light =[
-//
-//     {name: 'свет 31 контур 1a'      , scad: 'M203.1N1R3.31V1',    column: 'lamp_31_c1a'         , value:''},
-//     {name: 'свет 31 контур 1b'      , scad: 'M203.1N1R3.31V2',    column: 'lamp_31_c1b'         , value:''},
-//     {name: 'свет 31 контур 2c'      , scad: 'M203.1N1R3.31V3',    column: 'lamp_31_c2c'         , value:''},
-//     {name: 'свет 31 контур 2d'      , scad: 'M203.1N1R3.31V4',    column: 'lamp_31_c2d'         , value:''},
-//
-//     {name: 'свет 32 контур 1a'      , scad: 'M203.1N1R3.32V1',    column: 'lamp_32_c1a'         , value:''},
-//     {name: 'свет 32 контур 1b'      , scad: 'M203.1N1R3.32V2',    column: 'lamp_32_c1b'         , value:''},
-//     {name: 'свет 32 контур 2c'      , scad: 'M203.1N1R3.32V3',    column: 'lamp_32_c2c'         , value:''},
-//     {name: 'свет 32 контур 2d'      , scad: 'M203.1N1R3.32V4',    column: 'lamp_32_c2d'         , value:''},
-//
-//     {name: 'свет 41 контур 1a'      , scad: 'M203.1N1R3.41V1',    column: 'lamp_41_c1a'         , value:''},
-//     {name: 'свет 41 контур 1b'      , scad: 'M203.1N1R3.41V2',    column: 'lamp_41_c1b'         , value:''},
-//     {name: 'свет 41 контур 2c'      , scad: 'M203.1N1R3.41V3',    column: 'lamp_41_c2c'         , value:''},
-//     {name: 'свет 41 контур 2d'      , scad: 'M203.1N1R3.41V4',    column: 'lamp_41_c2d'         , value:''},
-//
-//     {name: 'свет 42 контур 1a'      , scad: 'M203.1N1R3.42V1',    column: 'lamp_42_c1a'         , value:''},
-//     {name: 'свет 42 контур 1b'      , scad: 'M203.1N1R3.42V2',    column: 'lamp_42_c1b'         , value:''},
-//     {name: 'свет 42 контур 2c'      , scad: 'M203.1N1R3.42V3',    column: 'lamp_42_c2c'         , value:''},
-//     {name: 'свет 42 контур 2d'      , scad: 'M203.1N1R3.42V4',    column: 'lamp_42_c2d'         , value:''},
-//
-//     {name: 'свет 81 контур 1a'      , scad: 'M203.1N1R3.81V1',    column: 'lamp_81_c1a'         , value:''},
-//     {name: 'свет 81 контур 1b'      , scad: 'M203.1N1R3.81V2',    column: 'lamp_81_c1b'         , value:''},
-//     {name: 'свет 81 контур 2c'      , scad: 'M203.1N1R3.81V3',    column: 'lamp_81_c2c'         , value:''},
-//     {name: 'свет 81 контур 2d'      , scad: 'M203.1N1R3.81V4',    column: 'lamp_81_c2d'         , value:''},
-//
-//     {name: 'свет 82 контур 1a'      , scad: 'M203.1N1R3.82V1',    column: 'lamp_82_c1a'         , value:''},
-//     {name: 'свет 82 контур 1b'      , scad: 'M203.1N1R3.82V2',    column: 'lamp_82_c1b'         , value:''},
-//     {name: 'свет 82 контур 2c'      , scad: 'M203.1N1R3.82V3',    column: 'lamp_82_c2c'         , value:''},
-//     {name: 'свет 82 контур 2d'      , scad: 'M203.1N1R3.82V4',    column: 'lamp_82_c2d'         , value:''},
-//
-//     {name: 'свет 83 контур 1a'      , scad: 'M203.1N1R3.83V1',    column: 'lamp_83_c1a'         , value:''},
-//     {name: 'свет 83 контур 1b'      , scad: 'M203.1N1R3.83V2',    column: 'lamp_83_c1b'         , value:''},
-//     {name: 'свет 83 контур 2c'      , scad: 'M203.1N1R3.83V3',    column: 'lamp_83_c2c'         , value:''},
-//     {name: 'свет 83 контур 2d'      , scad: 'M203.1N1R3.83V4',    column: 'lamp_83_c2d'         , value:''},
-//
-//     {name: 'свет 91 контур 1a'      , scad: 'M203.1N1R3.91V1',    column: 'lamp_91_c1a'         , value:''},
-//     {name: 'свет 91 контур 1b'      , scad: 'M203.1N1R3.91V2',    column: 'lamp_91_c1b'         , value:''},
-//     {name: 'свет 91 контур 2c'      , scad: 'M203.1N1R3.91V3',    column: 'lamp_91_c2c'         , value:''},
-//     {name: 'свет 91 контур 2d'      , scad: 'M203.1N1R3.91V4',    column: 'lamp_91_c2d'         , value:''},
-//
-//     {name: 'свет 92 контур 1a'      , scad: 'M203.1N1R3.92V1',    column: 'lamp_92_c1a'         , value:''},
-//     {name: 'свет 92 контур 1b'      , scad: 'M203.1N1R3.92V2',    column: 'lamp_92_c1b'         , value:''},
-//     {name: 'свет 92 контур 2c'      , scad: 'M203.1N1R3.92V3',    column: 'lamp_92_c2c'         , value:''},
-//     {name: 'свет 92 контур 2d'      , scad: 'M203.1N1R3.92V4',    column: 'lamp_92_c2d'         , value:''},
-//
-//     {name: 'свет 93 контур 1a'      , scad: 'M203.1N1R3.93V1',    column: 'lamp_93_c1a'         , value:''},
-//     {name: 'свет 93 контур 1b'      , scad: 'M203.1N1R3.93V2',    column: 'lamp_93_c1b'         , value:''},
-//     {name: 'свет 93 контур 2c'      , scad: 'M203.1N1R3.93V3',    column: 'lamp_93_c2c'         , value:''},
-//     {name: 'свет 93 контур 2d'      , scad: 'M203.1N1R3.93V4',    column: 'lamp_93_c2d'         , value:''},
-//
-//
-//
-//
-// ]
-//
-//
-// const AGRO_light_str_11 =[
-//     {name: 'свет стратегия 11 вкл1'  , scad: 'I205.0N1R6.1V1',      column: 'lamp_11_str_on1'       , value:''},
-//     {name: 'свет стратегия 11 вкл2'  , scad: 'I205.0N1R6.1V2',      column: 'lamp_11_str_on2'       , value:''},
-//     {name: 'свет стратегия 11 вкл3'  , scad: 'I205.0N1R6.1V3',      column: 'lamp_11_str_on3'       , value:''},
-//     {name: 'свет стратегия 11 вкл4'  , scad: 'I205.0N1R6.1V4',      column: 'lamp_11_str_on4'       , value:''},
-//     {name: 'свет стратегия 11 вкл5'  , scad: 'I205.0N1R6.1V5',      column: 'lamp_11_str_on5'       , value:''},
-//     {name: 'свет стратегия 11 вкл6'  , scad: 'I205.0N1R6.1V6',      column: 'lamp_11_str_on6'       , value:''},
-//     {name: 'свет стратегия 11 старт1', scad: 'I205.0N1R7.1V1',      column: 'lamp_11_str_start1'    , value:''},
-//     {name: 'свет стратегия 11 старт2', scad: 'I205.0N1R7.1V2',      column: 'lamp_11_str_start2'    , value:''},
-//     {name: 'свет стратегия 11 старт3', scad: 'I205.0N1R7.1V3',      column: 'lamp_11_str_start3'    , value:''},
-//     {name: 'свет стратегия 11 старт4', scad: 'I205.0N1R7.1V4',      column: 'lamp_11_str_start4'    , value:''},
-//     {name: 'свет стратегия 11 старт5', scad: 'I205.0N1R7.1V5',      column: 'lamp_11_str_start5'    , value:''},
-//     {name: 'свет стратегия 11 старт6', scad: 'I205.0N1R7.1V6',      column: 'lamp_11_str_start6'    , value:''},
-//     {name: 'свет стратегия 11 стоп1' , scad: 'I205.0N1R8.1V1',      column: 'lamp_11_str_stop1'     , value:''},
-//     {name: 'свет стратегия 11 стоп2' , scad: 'I205.0N1R8.1V2',      column: 'lamp_11_str_stop2'     , value:''},
-//     {name: 'свет стратегия 11 стоп3' , scad: 'I205.0N1R8.1V3',      column: 'lamp_11_str_stop3'     , value:''},
-//     {name: 'свет стратегия 11 стоп4' , scad: 'I205.0N1R8.1V4',      column: 'lamp_11_str_stop4'     , value:''},
-//     {name: 'свет стратегия 11 стоп5' , scad: 'I205.0N1R8.1V5',      column: 'lamp_11_str_stop5'     , value:''},
-//     {name: 'свет стратегия 11 стоп6' , scad: 'I205.0N1R8.1V6',      column: 'lamp_11_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_12 =[
-//     {name: 'свет стратегия 12 вкл1'  , scad: 'I205.0N2R6.1V1',      column: 'lamp_12_str_on1'       , value:''},
-//     {name: 'свет стратегия 12 вкл2'  , scad: 'I205.0N2R6.1V2',      column: 'lamp_12_str_on2'       , value:''},
-//     {name: 'свет стратегия 12 вкл3'  , scad: 'I205.0N2R6.1V3',      column: 'lamp_12_str_on3'       , value:''},
-//     {name: 'свет стратегия 12 вкл4'  , scad: 'I205.0N2R6.1V4',      column: 'lamp_12_str_on4'       , value:''},
-//     {name: 'свет стратегия 12 вкл5'  , scad: 'I205.0N2R6.1V5',      column: 'lamp_12_str_on5'       , value:''},
-//     {name: 'свет стратегия 12 вкл6'  , scad: 'I205.0N2R6.1V6',      column: 'lamp_12_str_on6'       , value:''},
-//     {name: 'свет стратегия 12 старт1', scad: 'I205.0N2R7.1V1',      column: 'lamp_12_str_start1'    , value:''},
-//     {name: 'свет стратегия 12 старт2', scad: 'I205.0N2R7.1V2',      column: 'lamp_12_str_start2'    , value:''},
-//     {name: 'свет стратегия 12 старт3', scad: 'I205.0N2R7.1V3',      column: 'lamp_12_str_start3'    , value:''},
-//     {name: 'свет стратегия 12 старт4', scad: 'I205.0N2R7.1V4',      column: 'lamp_12_str_start4'    , value:''},
-//     {name: 'свет стратегия 12 старт5', scad: 'I205.0N2R7.1V5',      column: 'lamp_12_str_start5'    , value:''},
-//     {name: 'свет стратегия 12 старт6', scad: 'I205.0N2R7.1V6',      column: 'lamp_12_str_start6'    , value:''},
-//     {name: 'свет стратегия 12 стоп1' , scad: 'I205.0N2R8.1V1',      column: 'lamp_12_str_stop1'     , value:''},
-//     {name: 'свет стратегия 12 стоп2' , scad: 'I205.0N2R8.1V2',      column: 'lamp_12_str_stop2'     , value:''},
-//     {name: 'свет стратегия 12 стоп3' , scad: 'I205.0N2R8.1V3',      column: 'lamp_12_str_stop3'     , value:''},
-//     {name: 'свет стратегия 12 стоп4' , scad: 'I205.0N2R8.1V4',      column: 'lamp_12_str_stop4'     , value:''},
-//     {name: 'свет стратегия 12 стоп5' , scad: 'I205.0N2R8.1V5',      column: 'lamp_12_str_stop5'     , value:''},
-//     {name: 'свет стратегия 12 стоп6' , scad: 'I205.0N2R8.1V6',      column: 'lamp_12_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_13 =[
-//     {name: 'свет стратегия 13 вкл1'  , scad: 'I205.0N3R6.1V1',      column: 'lamp_13_str_on1'       , value:''},
-//     {name: 'свет стратегия 13 вкл2'  , scad: 'I205.0N3R6.1V2',      column: 'lamp_13_str_on2'       , value:''},
-//     {name: 'свет стратегия 13 вкл3'  , scad: 'I205.0N3R6.1V3',      column: 'lamp_13_str_on3'       , value:''},
-//     {name: 'свет стратегия 13 вкл4'  , scad: 'I205.0N3R6.1V4',      column: 'lamp_13_str_on4'       , value:''},
-//     {name: 'свет стратегия 13 вкл5'  , scad: 'I205.0N3R6.1V5',      column: 'lamp_13_str_on5'       , value:''},
-//     {name: 'свет стратегия 13 вкл6'  , scad: 'I205.0N3R6.1V6',      column: 'lamp_13_str_on6'       , value:''},
-//     {name: 'свет стратегия 13 старт1', scad: 'I205.0N3R7.1V1',      column: 'lamp_13_str_start1'    , value:''},
-//     {name: 'свет стратегия 13 старт2', scad: 'I205.0N3R7.1V2',      column: 'lamp_13_str_start2'    , value:''},
-//     {name: 'свет стратегия 13 старт3', scad: 'I205.0N3R7.1V3',      column: 'lamp_13_str_start3'    , value:''},
-//     {name: 'свет стратегия 13 старт4', scad: 'I205.0N3R7.1V4',      column: 'lamp_13_str_start4'    , value:''},
-//     {name: 'свет стратегия 13 старт5', scad: 'I205.0N3R7.1V5',      column: 'lamp_13_str_start5'    , value:''},
-//     {name: 'свет стратегия 13 старт6', scad: 'I205.0N3R7.1V6',      column: 'lamp_13_str_start6'    , value:''},
-//     {name: 'свет стратегия 13 стоп1' , scad: 'I205.0N3R8.1V1',      column: 'lamp_13_str_stop1'     , value:''},
-//     {name: 'свет стратегия 13 стоп2' , scad: 'I205.0N3R8.1V2',      column: 'lamp_13_str_stop2'     , value:''},
-//     {name: 'свет стратегия 13 стоп3' , scad: 'I205.0N3R8.1V3',      column: 'lamp_13_str_stop3'     , value:''},
-//     {name: 'свет стратегия 13 стоп4' , scad: 'I205.0N3R8.1V4',      column: 'lamp_13_str_stop4'     , value:''},
-//     {name: 'свет стратегия 13 стоп5' , scad: 'I205.0N3R8.1V5',      column: 'lamp_13_str_stop5'     , value:''},
-//     {name: 'свет стратегия 13 стоп6' , scad: 'I205.0N3R8.1V6',      column: 'lamp_13_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_14 =[
-//     {name: 'свет стратегия 14 вкл1'  , scad: 'I205.0N4R6.1V1',      column: 'lamp_14_str_on1'       , value:''},
-//     {name: 'свет стратегия 14 вкл2'  , scad: 'I205.0N4R6.1V2',      column: 'lamp_14_str_on2'       , value:''},
-//     {name: 'свет стратегия 14 вкл3'  , scad: 'I205.0N4R6.1V3',      column: 'lamp_14_str_on3'       , value:''},
-//     {name: 'свет стратегия 14 вкл4'  , scad: 'I205.0N4R6.1V4',      column: 'lamp_14_str_on4'       , value:''},
-//     {name: 'свет стратегия 14 вкл5'  , scad: 'I205.0N4R6.1V5',      column: 'lamp_14_str_on5'       , value:''},
-//     {name: 'свет стратегия 14 вкл6'  , scad: 'I205.0N4R6.1V6',      column: 'lamp_14_str_on6'       , value:''},
-//     {name: 'свет стратегия 14 старт1', scad: 'I205.0N4R7.1V1',      column: 'lamp_14_str_start1'    , value:''},
-//     {name: 'свет стратегия 14 старт2', scad: 'I205.0N4R7.1V2',      column: 'lamp_14_str_start2'    , value:''},
-//     {name: 'свет стратегия 14 старт3', scad: 'I205.0N4R7.1V3',      column: 'lamp_14_str_start3'    , value:''},
-//     {name: 'свет стратегия 14 старт4', scad: 'I205.0N4R7.1V4',      column: 'lamp_14_str_start4'    , value:''},
-//     {name: 'свет стратегия 14 старт5', scad: 'I205.0N4R7.1V5',      column: 'lamp_14_str_start5'    , value:''},
-//     {name: 'свет стратегия 14 старт6', scad: 'I205.0N4R7.1V6',      column: 'lamp_14_str_start6'    , value:''},
-//     {name: 'свет стратегия 14 стоп1' , scad: 'I205.0N4R8.1V1',      column: 'lamp_14_str_stop1'     , value:''},
-//     {name: 'свет стратегия 14 стоп2' , scad: 'I205.0N4R8.1V2',      column: 'lamp_14_str_stop2'     , value:''},
-//     {name: 'свет стратегия 14 стоп3' , scad: 'I205.0N4R8.1V3',      column: 'lamp_14_str_stop3'     , value:''},
-//     {name: 'свет стратегия 14 стоп4' , scad: 'I205.0N4R8.1V4',      column: 'lamp_14_str_stop4'     , value:''},
-//     {name: 'свет стратегия 14 стоп5' , scad: 'I205.0N4R8.1V5',      column: 'lamp_14_str_stop5'     , value:''},
-//     {name: 'свет стратегия 14 стоп6' , scad: 'I205.0N4R8.1V6',      column: 'lamp_14_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_51 =[
-//     {name: 'свет стратегия 51 вкл1'  , scad: 'I205.0N31R6.1V1',      column: 'lamp_51_str_on1'       , value:''},
-//     {name: 'свет стратегия 51 вкл2'  , scad: 'I205.0N31R6.1V2',      column: 'lamp_51_str_on2'       , value:''},
-//     {name: 'свет стратегия 51 вкл3'  , scad: 'I205.0N31R6.1V3',      column: 'lamp_51_str_on3'       , value:''},
-//     {name: 'свет стратегия 51 вкл4'  , scad: 'I205.0N31R6.1V4',      column: 'lamp_51_str_on4'       , value:''},
-//     {name: 'свет стратегия 51 вкл5'  , scad: 'I205.0N31R6.1V5',      column: 'lamp_51_str_on5'       , value:''},
-//     {name: 'свет стратегия 51 вкл6'  , scad: 'I205.0N31R6.1V6',      column: 'lamp_51_str_on6'       , value:''},
-//     {name: 'свет стратегия 51 старт1', scad: 'I205.0N31R7.1V1',      column: 'lamp_51_str_start1'    , value:''},
-//     {name: 'свет стратегия 51 старт2', scad: 'I205.0N31R7.1V2',      column: 'lamp_51_str_start2'    , value:''},
-//     {name: 'свет стратегия 51 старт3', scad: 'I205.0N31R7.1V3',      column: 'lamp_51_str_start3'    , value:''},
-//     {name: 'свет стратегия 51 старт4', scad: 'I205.0N31R7.1V4',      column: 'lamp_51_str_start4'    , value:''},
-//     {name: 'свет стратегия 51 старт5', scad: 'I205.0N31R7.1V5',      column: 'lamp_51_str_start5'    , value:''},
-//     {name: 'свет стратегия 51 старт6', scad: 'I205.0N31R7.1V6',      column: 'lamp_51_str_start6'    , value:''},
-//     {name: 'свет стратегия 51 стоп1' , scad: 'I205.0N31R8.1V1',      column: 'lamp_51_str_stop1'     , value:''},
-//     {name: 'свет стратегия 51 стоп2' , scad: 'I205.0N31R8.1V2',      column: 'lamp_51_str_stop2'     , value:''},
-//     {name: 'свет стратегия 51 стоп3' , scad: 'I205.0N31R8.1V3',      column: 'lamp_51_str_stop3'     , value:''},
-//     {name: 'свет стратегия 51 стоп4' , scad: 'I205.0N31R8.1V4',      column: 'lamp_51_str_stop4'     , value:''},
-//     {name: 'свет стратегия 51 стоп5' , scad: 'I205.0N31R8.1V5',      column: 'lamp_51_str_stop5'     , value:''},
-//     {name: 'свет стратегия 51 стоп6' , scad: 'I205.0N31R8.1V6',      column: 'lamp_51_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_52 =[
-//     {name: 'свет стратегия 52 вкл1'  , scad: 'I205.0N41R6.1V1',      column: 'lamp_52_str_on1'       , value:''},
-//     {name: 'свет стратегия 52 вкл2'  , scad: 'I205.0N41R6.1V2',      column: 'lamp_52_str_on2'       , value:''},
-//     {name: 'свет стратегия 52 вкл3'  , scad: 'I205.0N41R6.1V3',      column: 'lamp_52_str_on3'       , value:''},
-//     {name: 'свет стратегия 52 вкл4'  , scad: 'I205.0N41R6.1V4',      column: 'lamp_52_str_on4'       , value:''},
-//     {name: 'свет стратегия 52 вкл5'  , scad: 'I205.0N41R6.1V5',      column: 'lamp_52_str_on5'       , value:''},
-//     {name: 'свет стратегия 52 вкл6'  , scad: 'I205.0N41R6.1V6',      column: 'lamp_52_str_on6'       , value:''},
-//     {name: 'свет стратегия 52 старт1', scad: 'I205.0N41R7.1V1',      column: 'lamp_52_str_start1'    , value:''},
-//     {name: 'свет стратегия 52 старт2', scad: 'I205.0N41R7.1V2',      column: 'lamp_52_str_start2'    , value:''},
-//     {name: 'свет стратегия 52 старт3', scad: 'I205.0N41R7.1V3',      column: 'lamp_52_str_start3'    , value:''},
-//     {name: 'свет стратегия 52 старт4', scad: 'I205.0N41R7.1V4',      column: 'lamp_52_str_start4'    , value:''},
-//     {name: 'свет стратегия 52 старт5', scad: 'I205.0N41R7.1V5',      column: 'lamp_52_str_start5'    , value:''},
-//     {name: 'свет стратегия 52 старт6', scad: 'I205.0N41R7.1V6',      column: 'lamp_52_str_start6'    , value:''},
-//     {name: 'свет стратегия 52 стоп1' , scad: 'I205.0N41R8.1V1',      column: 'lamp_52_str_stop1'     , value:''},
-//     {name: 'свет стратегия 52 стоп2' , scad: 'I205.0N41R8.1V2',      column: 'lamp_52_str_stop2'     , value:''},
-//     {name: 'свет стратегия 52 стоп3' , scad: 'I205.0N41R8.1V3',      column: 'lamp_52_str_stop3'     , value:''},
-//     {name: 'свет стратегия 52 стоп4' , scad: 'I205.0N41R8.1V4',      column: 'lamp_52_str_stop4'     , value:''},
-//     {name: 'свет стратегия 52 стоп5' , scad: 'I205.0N41R8.1V5',      column: 'lamp_52_str_stop5'     , value:''},
-//     {name: 'свет стратегия 52 стоп6' , scad: 'I205.0N41R8.1V6',      column: 'lamp_52_str_stop6'     , value:''},
-//
-// ]
-//
-//
-// const AGRO_light_str_21 =[
-//     {name: 'свет стратегия 21 вкл1'  , scad: 'I205.0N5R6.1V1',      column: 'lamp_21_str_on1'       , value:''},
-//     {name: 'свет стратегия 21 вкл2'  , scad: 'I205.0N5R6.1V2',      column: 'lamp_21_str_on2'       , value:''},
-//     {name: 'свет стратегия 21 вкл3'  , scad: 'I205.0N5R6.1V3',      column: 'lamp_21_str_on3'       , value:''},
-//     {name: 'свет стратегия 21 вкл4'  , scad: 'I205.0N5R6.1V4',      column: 'lamp_21_str_on4'       , value:''},
-//     {name: 'свет стратегия 21 вкл5'  , scad: 'I205.0N5R6.1V5',      column: 'lamp_21_str_on5'       , value:''},
-//     {name: 'свет стратегия 21 вкл6'  , scad: 'I205.0N5R6.1V6',      column: 'lamp_21_str_on6'       , value:''},
-//     {name: 'свет стратегия 21 старт1', scad: 'I205.0N5R7.1V1',      column: 'lamp_21_str_start1'    , value:''},
-//     {name: 'свет стратегия 21 старт2', scad: 'I205.0N5R7.1V2',      column: 'lamp_21_str_start2'    , value:''},
-//     {name: 'свет стратегия 21 старт3', scad: 'I205.0N5R7.1V3',      column: 'lamp_21_str_start3'    , value:''},
-//     {name: 'свет стратегия 21 старт4', scad: 'I205.0N5R7.1V4',      column: 'lamp_21_str_start4'    , value:''},
-//     {name: 'свет стратегия 21 старт5', scad: 'I205.0N5R7.1V5',      column: 'lamp_21_str_start5'    , value:''},
-//     {name: 'свет стратегия 21 старт6', scad: 'I205.0N5R7.1V6',      column: 'lamp_21_str_start6'    , value:''},
-//     {name: 'свет стратегия 21 стоп1' , scad: 'I205.0N5R8.1V1',      column: 'lamp_21_str_stop1'     , value:''},
-//     {name: 'свет стратегия 21 стоп2' , scad: 'I205.0N5R8.1V2',      column: 'lamp_21_str_stop2'     , value:''},
-//     {name: 'свет стратегия 21 стоп3' , scad: 'I205.0N5R8.1V3',      column: 'lamp_21_str_stop3'     , value:''},
-//     {name: 'свет стратегия 21 стоп4' , scad: 'I205.0N5R8.1V4',      column: 'lamp_21_str_stop4'     , value:''},
-//     {name: 'свет стратегия 21 стоп5' , scad: 'I205.0N5R8.1V5',      column: 'lamp_21_str_stop5'     , value:''},
-//     {name: 'свет стратегия 21 стоп6' , scad: 'I205.0N5R8.1V6',      column: 'lamp_21_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_22 =[
-//     {name: 'свет стратегия 22 вкл1'  , scad: 'I205.0N51R6.1V1',      column: 'lamp_22_str_on1'       , value:''},
-//     {name: 'свет стратегия 22 вкл2'  , scad: 'I205.0N51R6.1V2',      column: 'lamp_22_str_on2'       , value:''},
-//     {name: 'свет стратегия 22 вкл3'  , scad: 'I205.0N51R6.1V3',      column: 'lamp_22_str_on3'       , value:''},
-//     {name: 'свет стратегия 22 вкл4'  , scad: 'I205.0N51R6.1V4',      column: 'lamp_22_str_on4'       , value:''},
-//     {name: 'свет стратегия 22 вкл5'  , scad: 'I205.0N51R6.1V5',      column: 'lamp_22_str_on5'       , value:''},
-//     {name: 'свет стратегия 22 вкл6'  , scad: 'I205.0N51R6.1V6',      column: 'lamp_22_str_on6'       , value:''},
-//     {name: 'свет стратегия 22 старт1', scad: 'I205.0N51R7.1V1',      column: 'lamp_22_str_start1'    , value:''},
-//     {name: 'свет стратегия 22 старт2', scad: 'I205.0N51R7.1V2',      column: 'lamp_22_str_start2'    , value:''},
-//     {name: 'свет стратегия 22 старт3', scad: 'I205.0N51R7.1V3',      column: 'lamp_22_str_start3'    , value:''},
-//     {name: 'свет стратегия 22 старт4', scad: 'I205.0N51R7.1V4',      column: 'lamp_22_str_start4'    , value:''},
-//     {name: 'свет стратегия 22 старт5', scad: 'I205.0N51R7.1V5',      column: 'lamp_22_str_start5'    , value:''},
-//     {name: 'свет стратегия 22 старт6', scad: 'I205.0N51R7.1V6',      column: 'lamp_22_str_start6'    , value:''},
-//     {name: 'свет стратегия 22 стоп1' , scad: 'I205.0N51R8.1V1',      column: 'lamp_22_str_stop1'     , value:''},
-//     {name: 'свет стратегия 22 стоп2' , scad: 'I205.0N51R8.1V2',      column: 'lamp_22_str_stop2'     , value:''},
-//     {name: 'свет стратегия 22 стоп3' , scad: 'I205.0N51R8.1V3',      column: 'lamp_22_str_stop3'     , value:''},
-//     {name: 'свет стратегия 22 стоп4' , scad: 'I205.0N51R8.1V4',      column: 'lamp_22_str_stop4'     , value:''},
-//     {name: 'свет стратегия 22 стоп5' , scad: 'I205.0N51R8.1V5',      column: 'lamp_22_str_stop5'     , value:''},
-//     {name: 'свет стратегия 22 стоп6' , scad: 'I205.0N51R8.1V6',      column: 'lamp_22_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_23 =[
-//     {name: 'свет стратегия 23 вкл1'  , scad: 'I205.0N61R6.1V1',      column: 'lamp_23_str_on1'       , value:''},
-//     {name: 'свет стратегия 23 вкл2'  , scad: 'I205.0N61R6.1V2',      column: 'lamp_23_str_on2'       , value:''},
-//     {name: 'свет стратегия 23 вкл3'  , scad: 'I205.0N61R6.1V3',      column: 'lamp_23_str_on3'       , value:''},
-//     {name: 'свет стратегия 23 вкл4'  , scad: 'I205.0N61R6.1V4',      column: 'lamp_23_str_on4'       , value:''},
-//     {name: 'свет стратегия 23 вкл5'  , scad: 'I205.0N61R6.1V5',      column: 'lamp_23_str_on5'       , value:''},
-//     {name: 'свет стратегия 23 вкл6'  , scad: 'I205.0N61R6.1V6',      column: 'lamp_23_str_on6'       , value:''},
-//     {name: 'свет стратегия 23 старт1', scad: 'I205.0N61R7.1V1',      column: 'lamp_23_str_start1'    , value:''},
-//     {name: 'свет стратегия 23 старт2', scad: 'I205.0N61R7.1V2',      column: 'lamp_23_str_start2'    , value:''},
-//     {name: 'свет стратегия 23 старт3', scad: 'I205.0N61R7.1V3',      column: 'lamp_23_str_start3'    , value:''},
-//     {name: 'свет стратегия 23 старт4', scad: 'I205.0N61R7.1V4',      column: 'lamp_23_str_start4'    , value:''},
-//     {name: 'свет стратегия 23 старт5', scad: 'I205.0N61R7.1V5',      column: 'lamp_23_str_start5'    , value:''},
-//     {name: 'свет стратегия 23 старт6', scad: 'I205.0N61R7.1V6',      column: 'lamp_23_str_start6'    , value:''},
-//     {name: 'свет стратегия 23 стоп1' , scad: 'I205.0N61R8.1V1',      column: 'lamp_23_str_stop1'     , value:''},
-//     {name: 'свет стратегия 23 стоп2' , scad: 'I205.0N61R8.1V2',      column: 'lamp_23_str_stop2'     , value:''},
-//     {name: 'свет стратегия 23 стоп3' , scad: 'I205.0N61R8.1V3',      column: 'lamp_23_str_stop3'     , value:''},
-//     {name: 'свет стратегия 23 стоп4' , scad: 'I205.0N61R8.1V4',      column: 'lamp_23_str_stop4'     , value:''},
-//     {name: 'свет стратегия 23 стоп5' , scad: 'I205.0N61R8.1V5',      column: 'lamp_23_str_stop5'     , value:''},
-//     {name: 'свет стратегия 23 стоп6' , scad: 'I205.0N61R8.1V6',      column: 'lamp_23_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_24 =[
-//     {name: 'свет стратегия 24 вкл1'  , scad: 'I205.0N71R6.1V1',      column: 'lamp_24_str_on1'       , value:''},
-//     {name: 'свет стратегия 24 вкл2'  , scad: 'I205.0N71R6.1V2',      column: 'lamp_24_str_on2'       , value:''},
-//     {name: 'свет стратегия 24 вкл3'  , scad: 'I205.0N71R6.1V3',      column: 'lamp_24_str_on3'       , value:''},
-//     {name: 'свет стратегия 24 вкл4'  , scad: 'I205.0N71R6.1V4',      column: 'lamp_24_str_on4'       , value:''},
-//     {name: 'свет стратегия 24 вкл5'  , scad: 'I205.0N71R6.1V5',      column: 'lamp_24_str_on5'       , value:''},
-//     {name: 'свет стратегия 24 вкл6'  , scad: 'I205.0N71R6.1V6',      column: 'lamp_24_str_on6'       , value:''},
-//     {name: 'свет стратегия 24 старт1', scad: 'I205.0N71R7.1V1',      column: 'lamp_24_str_start1'    , value:''},
-//     {name: 'свет стратегия 24 старт2', scad: 'I205.0N71R7.1V2',      column: 'lamp_24_str_start2'    , value:''},
-//     {name: 'свет стратегия 24 старт3', scad: 'I205.0N71R7.1V3',      column: 'lamp_24_str_start3'    , value:''},
-//     {name: 'свет стратегия 24 старт4', scad: 'I205.0N71R7.1V4',      column: 'lamp_24_str_start4'    , value:''},
-//     {name: 'свет стратегия 24 старт5', scad: 'I205.0N71R7.1V5',      column: 'lamp_24_str_start5'    , value:''},
-//     {name: 'свет стратегия 24 старт6', scad: 'I205.0N71R7.1V6',      column: 'lamp_24_str_start6'    , value:''},
-//     {name: 'свет стратегия 24 стоп1' , scad: 'I205.0N71R8.1V1',      column: 'lamp_24_str_stop1'     , value:''},
-//     {name: 'свет стратегия 24 стоп2' , scad: 'I205.0N71R8.1V2',      column: 'lamp_24_str_stop2'     , value:''},
-//     {name: 'свет стратегия 24 стоп3' , scad: 'I205.0N71R8.1V3',      column: 'lamp_24_str_stop3'     , value:''},
-//     {name: 'свет стратегия 24 стоп4' , scad: 'I205.0N71R8.1V4',      column: 'lamp_24_str_stop5'     , value:''},
-//     {name: 'свет стратегия 24 стоп6' , scad: 'I205.0N71R8.1V6',      column: 'lamp_24_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_61 =[
-//     {name: 'свет стратегия 61 вкл1'  , scad: 'I205.0N81R6.1V1',      column: 'lamp_61_str_on1'       , value:''},
-//     {name: 'свет стратегия 61 вкл2'  , scad: 'I205.0N81R6.1V2',      column: 'lamp_61_str_on2'       , value:''},
-//     {name: 'свет стратегия 61 вкл3'  , scad: 'I205.0N81R6.1V3',      column: 'lamp_61_str_on3'       , value:''},
-//     {name: 'свет стратегия 61 вкл4'  , scad: 'I205.0N81R6.1V4',      column: 'lamp_61_str_on4'       , value:''},
-//     {name: 'свет стратегия 61 вкл5'  , scad: 'I205.0N81R6.1V5',      column: 'lamp_61_str_on5'       , value:''},
-//     {name: 'свет стратегия 61 вкл6'  , scad: 'I205.0N81R6.1V6',      column: 'lamp_61_str_on6'       , value:''},
-//     {name: 'свет стратегия 61 старт1', scad: 'I205.0N81R7.1V1',      column: 'lamp_61_str_start1'    , value:''},
-//     {name: 'свет стратегия 61 старт2', scad: 'I205.0N81R7.1V2',      column: 'lamp_61_str_start2'    , value:''},
-//     {name: 'свет стратегия 61 старт3', scad: 'I205.0N81R7.1V3',      column: 'lamp_61_str_start3'    , value:''},
-//     {name: 'свет стратегия 61 старт4', scad: 'I205.0N81R7.1V4',      column: 'lamp_61_str_start4'    , value:''},
-//     {name: 'свет стратегия 61 старт5', scad: 'I205.0N81R7.1V5',      column: 'lamp_61_str_start5'    , value:''},
-//     {name: 'свет стратегия 61 старт6', scad: 'I205.0N81R7.1V6',      column: 'lamp_61_str_start6'    , value:''},
-//     {name: 'свет стратегия 61 стоп1' , scad: 'I205.0N81R8.1V1',      column: 'lamp_61_str_stop1'     , value:''},
-//     {name: 'свет стратегия 61 стоп2' , scad: 'I205.0N81R8.1V2',      column: 'lamp_61_str_stop2'     , value:''},
-//     {name: 'свет стратегия 61 стоп3' , scad: 'I205.0N81R8.1V3',      column: 'lamp_61_str_stop3'     , value:''},
-//     {name: 'свет стратегия 61 стоп4' , scad: 'I205.0N81R8.1V4',      column: 'lamp_61_str_stop4'     , value:''},
-//     {name: 'свет стратегия 61 стоп5' , scad: 'I205.0N81R8.1V5',      column: 'lamp_61_str_stop5'     , value:''},
-//     {name: 'свет стратегия 61 стоп6' , scad: 'I205.0N81R8.1V6',      column: 'lamp_61_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_62 =[
-//     {name: 'свет стратегия 62 вкл1'  , scad: 'I205.0N81R6.1V1',      column: 'lamp_62_str_on1'       , value:''},
-//     {name: 'свет стратегия 62 вкл2'  , scad: 'I205.0N81R6.1V2',      column: 'lamp_62_str_on2'       , value:''},
-//     {name: 'свет стратегия 62 вкл3'  , scad: 'I205.0N81R6.1V3',      column: 'lamp_62_str_on3'       , value:''},
-//     {name: 'свет стратегия 62 вкл4'  , scad: 'I205.0N81R6.1V4',      column: 'lamp_62_str_on4'       , value:''},
-//     {name: 'свет стратегия 62 вкл5'  , scad: 'I205.0N81R6.1V5',      column: 'lamp_62_str_on5'       , value:''},
-//     {name: 'свет стратегия 62 вкл6'  , scad: 'I205.0N81R6.1V6',      column: 'lamp_62_str_on6'       , value:''},
-//     {name: 'свет стратегия 62 старт1', scad: 'I205.0N81R7.1V1',      column: 'lamp_62_str_start1'    , value:''},
-//     {name: 'свет стратегия 62 старт2', scad: 'I205.0N81R7.1V2',      column: 'lamp_62_str_start2'    , value:''},
-//     {name: 'свет стратегия 62 старт3', scad: 'I205.0N81R7.1V3',      column: 'lamp_62_str_start3'    , value:''},
-//     {name: 'свет стратегия 62 старт4', scad: 'I205.0N81R7.1V4',      column: 'lamp_62_str_start4'    , value:''},
-//     {name: 'свет стратегия 62 старт5', scad: 'I205.0N81R7.1V5',      column: 'lamp_62_str_start5'    , value:''},
-//     {name: 'свет стратегия 62 старт6', scad: 'I205.0N81R7.1V6',      column: 'lamp_62_str_start6'    , value:''},
-//     {name: 'свет стратегия 62 стоп1' , scad: 'I205.0N81R8.1V1',      column: 'lamp_62_str_stop1'     , value:''},
-//     {name: 'свет стратегия 62 стоп2' , scad: 'I205.0N81R8.1V2',      column: 'lamp_62_str_stop2'     , value:''},
-//     {name: 'свет стратегия 62 стоп3' , scad: 'I205.0N81R8.1V3',      column: 'lamp_62_str_stop3'     , value:''},
-//     {name: 'свет стратегия 62 стоп4' , scad: 'I205.0N81R8.1V4',      column: 'lamp_62_str_stop4'     , value:''},
-//     {name: 'свет стратегия 62 стоп5' , scad: 'I205.0N81R8.1V5',      column: 'lamp_62_str_stop5'     , value:''},
-//     {name: 'свет стратегия 62 стоп6' , scad: 'I205.0N81R8.1V6',      column: 'lamp_62_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_63 =[
-//     {name: 'свет стратегия 63 вкл1'  , scad: 'I205.0N81R6.1V1',      column: 'lamp_63_str_on1'       , value:''},
-//     {name: 'свет стратегия 63 вкл2'  , scad: 'I205.0N81R6.1V2',      column: 'lamp_63_str_on2'       , value:''},
-//     {name: 'свет стратегия 63 вкл3'  , scad: 'I205.0N81R6.1V3',      column: 'lamp_63_str_on3'       , value:''},
-//     {name: 'свет стратегия 63 вкл4'  , scad: 'I205.0N81R6.1V4',      column: 'lamp_63_str_on4'       , value:''},
-//     {name: 'свет стратегия 63 вкл5'  , scad: 'I205.0N81R6.1V5',      column: 'lamp_63_str_on5'       , value:''},
-//     {name: 'свет стратегия 63 вкл6'  , scad: 'I205.0N81R6.1V6',      column: 'lamp_63_str_on6'       , value:''},
-//     {name: 'свет стратегия 63 старт1', scad: 'I205.0N81R7.1V1',      column: 'lamp_63_str_start1'    , value:''},
-//     {name: 'свет стратегия 63 старт2', scad: 'I205.0N81R7.1V2',      column: 'lamp_63_str_start2'    , value:''},
-//     {name: 'свет стратегия 63 старт3', scad: 'I205.0N81R7.1V3',      column: 'lamp_63_str_start3'    , value:''},
-//     {name: 'свет стратегия 63 старт4', scad: 'I205.0N81R7.1V4',      column: 'lamp_63_str_start4'    , value:''},
-//     {name: 'свет стратегия 63 старт5', scad: 'I205.0N81R7.1V5',      column: 'lamp_63_str_start5'    , value:''},
-//     {name: 'свет стратегия 63 старт6', scad: 'I205.0N81R7.1V6',      column: 'lamp_63_str_start6'    , value:''},
-//     {name: 'свет стратегия 63 стоп1' , scad: 'I205.0N81R8.1V1',      column: 'lamp_63_str_stop1'     , value:''},
-//     {name: 'свет стратегия 63 стоп2' , scad: 'I205.0N81R8.1V2',      column: 'lamp_63_str_stop2'     , value:''},
-//     {name: 'свет стратегия 63 стоп3' , scad: 'I205.0N81R8.1V3',      column: 'lamp_63_str_stop3'     , value:''},
-//     {name: 'свет стратегия 63 стоп4' , scad: 'I205.0N81R8.1V4',      column: 'lamp_63_str_stop4'     , value:''},
-//     {name: 'свет стратегия 63 стоп5' , scad: 'I205.0N81R8.1V5',      column: 'lamp_63_str_stop5'     , value:''},
-//     {name: 'свет стратегия 63 стоп6' , scad: 'I205.0N81R8.1V6',      column: 'lamp_63_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_71 =[
-//     {name: 'свет стратегия 71 вкл1'  , scad: 'I205.0N81R6.1V1',      column: 'lamp_71_str_on1'       , value:''},
-//     {name: 'свет стратегия 71 вкл2'  , scad: 'I205.0N81R6.1V2',      column: 'lamp_71_str_on2'       , value:''},
-//     {name: 'свет стратегия 71 вкл3'  , scad: 'I205.0N81R6.1V3',      column: 'lamp_71_str_on3'       , value:''},
-//     {name: 'свет стратегия 71 вкл4'  , scad: 'I205.0N81R6.1V4',      column: 'lamp_71_str_on4'       , value:''},
-//     {name: 'свет стратегия 71 вкл5'  , scad: 'I205.0N81R6.1V5',      column: 'lamp_71_str_on5'       , value:''},
-//     {name: 'свет стратегия 71 вкл6'  , scad: 'I205.0N81R6.1V6',      column: 'lamp_71_str_on6'       , value:''},
-//     {name: 'свет стратегия 71 старт1', scad: 'I205.0N81R7.1V1',      column: 'lamp_71_str_start1'    , value:''},
-//     {name: 'свет стратегия 71 старт2', scad: 'I205.0N81R7.1V2',      column: 'lamp_71_str_start2'    , value:''},
-//     {name: 'свет стратегия 71 старт3', scad: 'I205.0N81R7.1V3',      column: 'lamp_71_str_start3'    , value:''},
-//     {name: 'свет стратегия 71 старт4', scad: 'I205.0N81R7.1V4',      column: 'lamp_71_str_start4'    , value:''},
-//     {name: 'свет стратегия 71 старт5', scad: 'I205.0N81R7.1V5',      column: 'lamp_71_str_start5'    , value:''},
-//     {name: 'свет стратегия 71 старт6', scad: 'I205.0N81R7.1V6',      column: 'lamp_71_str_start6'    , value:''},
-//     {name: 'свет стратегия 71 стоп1' , scad: 'I205.0N81R8.1V1',      column: 'lamp_71_str_stop1'     , value:''},
-//     {name: 'свет стратегия 71 стоп2' , scad: 'I205.0N81R8.1V2',      column: 'lamp_71_str_stop2'     , value:''},
-//     {name: 'свет стратегия 71 стоп3' , scad: 'I205.0N81R8.1V3',      column: 'lamp_71_str_stop3'     , value:''},
-//     {name: 'свет стратегия 71 стоп4' , scad: 'I205.0N81R8.1V4',      column: 'lamp_71_str_stop4'     , value:''},
-//     {name: 'свет стратегия 71 стоп5' , scad: 'I205.0N81R8.1V5',      column: 'lamp_71_str_stop5'     , value:''},
-//     {name: 'свет стратегия 71 стоп6' , scad: 'I205.0N81R8.1V6',      column: 'lamp_71_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_72 =[
-//     {name: 'свет стратегия 72 вкл1'  , scad: 'I205.0N81R6.1V1',      column: 'lamp_72_str_on1'       , value:''},
-//     {name: 'свет стратегия 72 вкл2'  , scad: 'I205.0N81R6.1V2',      column: 'lamp_72_str_on2'       , value:''},
-//     {name: 'свет стратегия 72 вкл3'  , scad: 'I205.0N81R6.1V3',      column: 'lamp_72_str_on3'       , value:''},
-//     {name: 'свет стратегия 72 вкл4'  , scad: 'I205.0N81R6.1V4',      column: 'lamp_72_str_on4'       , value:''},
-//     {name: 'свет стратегия 72 вкл5'  , scad: 'I205.0N81R6.1V5',      column: 'lamp_72_str_on5'       , value:''},
-//     {name: 'свет стратегия 72 вкл6'  , scad: 'I205.0N81R6.1V6',      column: 'lamp_72_str_on6'       , value:''},
-//     {name: 'свет стратегия 72 старт1', scad: 'I205.0N81R7.1V1',      column: 'lamp_72_str_start1'    , value:''},
-//     {name: 'свет стратегия 72 старт2', scad: 'I205.0N81R7.1V2',      column: 'lamp_72_str_start2'    , value:''},
-//     {name: 'свет стратегия 72 старт3', scad: 'I205.0N81R7.1V3',      column: 'lamp_72_str_start3'    , value:''},
-//     {name: 'свет стратегия 72 старт4', scad: 'I205.0N81R7.1V4',      column: 'lamp_72_str_start4'    , value:''},
-//     {name: 'свет стратегия 72 старт5', scad: 'I205.0N81R7.1V5',      column: 'lamp_72_str_start5'    , value:''},
-//     {name: 'свет стратегия 72 старт6', scad: 'I205.0N81R7.1V6',      column: 'lamp_72_str_start6'    , value:''},
-//     {name: 'свет стратегия 72 стоп1' , scad: 'I205.0N81R8.1V1',      column: 'lamp_72_str_stop1'     , value:''},
-//     {name: 'свет стратегия 72 стоп2' , scad: 'I205.0N81R8.1V2',      column: 'lamp_72_str_stop2'     , value:''},
-//     {name: 'свет стратегия 72 стоп3' , scad: 'I205.0N81R8.1V3',      column: 'lamp_72_str_stop3'     , value:''},
-//     {name: 'свет стратегия 72 стоп4' , scad: 'I205.0N81R8.1V4',      column: 'lamp_72_str_stop4'     , value:''},
-//     {name: 'свет стратегия 72 стоп5' , scad: 'I205.0N81R8.1V5',      column: 'lamp_72_str_stop5'     , value:''},
-//     {name: 'свет стратегия 72 стоп6' , scad: 'I205.0N81R8.1V6',      column: 'lamp_72_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_73 =[
-//     {name: 'свет стратегия 73 вкл1'  , scad: 'I205.0N81R6.1V1',      column: 'lamp_73_str_on1'       , value:''},
-//     {name: 'свет стратегия 73 вкл2'  , scad: 'I205.0N81R6.1V2',      column: 'lamp_73_str_on2'       , value:''},
-//     {name: 'свет стратегия 73 вкл3'  , scad: 'I205.0N81R6.1V3',      column: 'lamp_73_str_on3'       , value:''},
-//     {name: 'свет стратегия 73 вкл4'  , scad: 'I205.0N81R6.1V4',      column: 'lamp_73_str_on4'       , value:''},
-//     {name: 'свет стратегия 73 вкл5'  , scad: 'I205.0N81R6.1V5',      column: 'lamp_73_str_on5'       , value:''},
-//     {name: 'свет стратегия 73 вкл6'  , scad: 'I205.0N81R6.1V6',      column: 'lamp_73_str_on6'       , value:''},
-//     {name: 'свет стратегия 73 старт1', scad: 'I205.0N81R7.1V1',      column: 'lamp_73_str_start1'    , value:''},
-//     {name: 'свет стратегия 73 старт2', scad: 'I205.0N81R7.1V2',      column: 'lamp_73_str_start2'    , value:''},
-//     {name: 'свет стратегия 73 старт3', scad: 'I205.0N81R7.1V3',      column: 'lamp_73_str_start3'    , value:''},
-//     {name: 'свет стратегия 73 старт4', scad: 'I205.0N81R7.1V4',      column: 'lamp_73_str_start4'    , value:''},
-//     {name: 'свет стратегия 73 старт5', scad: 'I205.0N81R7.1V5',      column: 'lamp_73_str_start5'    , value:''},
-//     {name: 'свет стратегия 73 старт6', scad: 'I205.0N81R7.1V6',      column: 'lamp_73_str_start6'    , value:''},
-//     {name: 'свет стратегия 73 стоп1' , scad: 'I205.0N81R8.1V1',      column: 'lamp_73_str_stop1'     , value:''},
-//     {name: 'свет стратегия 73 стоп2' , scad: 'I205.0N81R8.1V2',      column: 'lamp_73_str_stop2'     , value:''},
-//     {name: 'свет стратегия 73 стоп3' , scad: 'I205.0N81R8.1V3',      column: 'lamp_73_str_stop3'     , value:''},
-//     {name: 'свет стратегия 73 стоп4' , scad: 'I205.0N81R8.1V4',      column: 'lamp_73_str_stop4'     , value:''},
-//     {name: 'свет стратегия 73 стоп5' , scad: 'I205.0N81R8.1V5',      column: 'lamp_73_str_stop5'     , value:''},
-//     {name: 'свет стратегия 73 стоп6' , scad: 'I205.0N81R8.1V6',      column: 'lamp_73_str_stop6'     , value:''},
-//
-// ]
-//
-//
-// const AGRO_light_str_31 =[
-//     {name: 'свет стратегия 31 вкл1'  , scad: 'I205.0N81R6.1V1',      column: 'lamp_31_str_on1'       , value:''},
-//     {name: 'свет стратегия 31 вкл2'  , scad: 'I205.0N81R6.1V2',      column: 'lamp_31_str_on2'       , value:''},
-//     {name: 'свет стратегия 31 вкл3'  , scad: 'I205.0N81R6.1V3',      column: 'lamp_31_str_on3'       , value:''},
-//     {name: 'свет стратегия 31 вкл4'  , scad: 'I205.0N81R6.1V4',      column: 'lamp_31_str_on4'       , value:''},
-//     {name: 'свет стратегия 31 вкл5'  , scad: 'I205.0N81R6.1V5',      column: 'lamp_31_str_on5'       , value:''},
-//     {name: 'свет стратегия 31 вкл6'  , scad: 'I205.0N81R6.1V6',      column: 'lamp_31_str_on6'       , value:''},
-//     {name: 'свет стратегия 31 старт1', scad: 'I205.0N81R7.1V1',      column: 'lamp_31_str_start1'    , value:''},
-//     {name: 'свет стратегия 31 старт2', scad: 'I205.0N81R7.1V2',      column: 'lamp_31_str_start2'    , value:''},
-//     {name: 'свет стратегия 31 старт3', scad: 'I205.0N81R7.1V3',      column: 'lamp_31_str_start3'    , value:''},
-//     {name: 'свет стратегия 31 старт4', scad: 'I205.0N81R7.1V4',      column: 'lamp_31_str_start4'    , value:''},
-//     {name: 'свет стратегия 31 старт5', scad: 'I205.0N81R7.1V5',      column: 'lamp_31_str_start5'    , value:''},
-//     {name: 'свет стратегия 31 старт6', scad: 'I205.0N81R7.1V6',      column: 'lamp_31_str_start6'    , value:''},
-//     {name: 'свет стратегия 31 стоп1' , scad: 'I205.0N81R8.1V1',      column: 'lamp_31_str_stop1'     , value:''},
-//     {name: 'свет стратегия 31 стоп2' , scad: 'I205.0N81R8.1V2',      column: 'lamp_31_str_stop2'     , value:''},
-//     {name: 'свет стратегия 31 стоп3' , scad: 'I205.0N81R8.1V3',      column: 'lamp_31_str_stop3'     , value:''},
-//     {name: 'свет стратегия 31 стоп4' , scad: 'I205.0N81R8.1V4',      column: 'lamp_31str_stop4'     , value:''},
-//     {name: 'свет стратегия 31 стоп5' , scad: 'I205.0N81R8.1V5',      column: 'lamp_31_str_stop5'     , value:''},
-//     {name: 'свет стратегия 31 стоп6' , scad: 'I205.0N81R8.1V6',      column: 'lamp_31_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_32 =[
-//     {name: 'свет стратегия 32 вкл1'  , scad: 'I205.0N81R6.1V1',      column: 'lamp_32_str_on1'       , value:''},
-//     {name: 'свет стратегия 32 вкл2'  , scad: 'I205.0N81R6.1V2',      column: 'lamp_32_str_on2'       , value:''},
-//     {name: 'свет стратегия 32 вкл3'  , scad: 'I205.0N81R6.1V3',      column: 'lamp_32_str_on3'       , value:''},
-//     {name: 'свет стратегия 32 вкл4'  , scad: 'I205.0N81R6.1V4',      column: 'lamp_32_str_on4'       , value:''},
-//     {name: 'свет стратегия 32 вкл5'  , scad: 'I205.0N81R6.1V5',      column: 'lamp_32_str_on5'       , value:''},
-//     {name: 'свет стратегия 32 вкл6'  , scad: 'I205.0N81R6.1V6',      column: 'lamp_32_str_on6'       , value:''},
-//     {name: 'свет стратегия 32 старт1', scad: 'I205.0N81R7.1V1',      column: 'lamp_32_str_start1'    , value:''},
-//     {name: 'свет стратегия 32 старт2', scad: 'I205.0N81R7.1V2',      column: 'lamp_32_str_start2'    , value:''},
-//     {name: 'свет стратегия 32 старт3', scad: 'I205.0N81R7.1V3',      column: 'lamp_32_str_start3'    , value:''},
-//     {name: 'свет стратегия 32 старт4', scad: 'I205.0N81R7.1V4',      column: 'lamp_32_str_start4'    , value:''},
-//     {name: 'свет стратегия 32 старт5', scad: 'I205.0N81R7.1V5',      column: 'lamp_32_str_start5'    , value:''},
-//     {name: 'свет стратегия 32 старт6', scad: 'I205.0N81R7.1V6',      column: 'lamp_32_str_start6'    , value:''},
-//     {name: 'свет стратегия 32 стоп1' , scad: 'I205.0N81R8.1V1',      column: 'lamp_32_str_stop1'     , value:''},
-//     {name: 'свет стратегия 32 стоп2' , scad: 'I205.0N81R8.1V2',      column: 'lamp_32_str_stop2'     , value:''},
-//     {name: 'свет стратегия 32 стоп3' , scad: 'I205.0N81R8.1V3',      column: 'lamp_32_str_stop3'     , value:''},
-//     {name: 'свет стратегия 32 стоп4' , scad: 'I205.0N81R8.1V4',      column: 'lamp_32_str_stop4'     , value:''},
-//     {name: 'свет стратегия 32 стоп5' , scad: 'I205.0N81R8.1V5',      column: 'lamp_32_str_stop5'     , value:''},
-//     {name: 'свет стратегия 32 стоп6' , scad: 'I205.0N81R8.1V6',      column: 'lamp_32_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_41 =[
-//     {name: 'свет стратегия 41 вкл1'  , scad: 'I205.0N81R6.1V1',      column: 'lamp_41_str_on1'       , value:''},
-//     {name: 'свет стратегия 41 вкл2'  , scad: 'I205.0N81R6.1V2',      column: 'lamp_41_str_on2'       , value:''},
-//     {name: 'свет стратегия 41 вкл3'  , scad: 'I205.0N81R6.1V3',      column: 'lamp_41_str_on3'       , value:''},
-//     {name: 'свет стратегия 41 вкл4'  , scad: 'I205.0N81R6.1V4',      column: 'lamp_41_str_on4'       , value:''},
-//     {name: 'свет стратегия 41 вкл5'  , scad: 'I205.0N81R6.1V5',      column: 'lamp_41_str_on5'       , value:''},
-//     {name: 'свет стратегия 41 вкл6'  , scad: 'I205.0N81R6.1V6',      column: 'lamp_41_str_on6'       , value:''},
-//     {name: 'свет стратегия 41 старт1', scad: 'I205.0N81R7.1V1',      column: 'lamp_41_str_start1'    , value:''},
-//     {name: 'свет стратегия 41 старт2', scad: 'I205.0N81R7.1V2',      column: 'lamp_41_str_start2'    , value:''},
-//     {name: 'свет стратегия 41 старт3', scad: 'I205.0N81R7.1V3',      column: 'lamp_41_str_start3'    , value:''},
-//     {name: 'свет стратегия 41 старт4', scad: 'I205.0N81R7.1V4',      column: 'lamp_41_str_start4'    , value:''},
-//     {name: 'свет стратегия 41 старт5', scad: 'I205.0N81R7.1V5',      column: 'lamp_41_str_start5'    , value:''},
-//     {name: 'свет стратегия 41 старт6', scad: 'I205.0N81R7.1V6',      column: 'lamp_41_str_start6'    , value:''},
-//     {name: 'свет стратегия 41 стоп1' , scad: 'I205.0N81R8.1V1',      column: 'lamp_41_str_stop1'     , value:''},
-//     {name: 'свет стратегия 41 стоп2' , scad: 'I205.0N81R8.1V2',      column: 'lamp_41_str_stop2'     , value:''},
-//     {name: 'свет стратегия 41 стоп3' , scad: 'I205.0N81R8.1V3',      column: 'lamp_41_str_stop3'     , value:''},
-//     {name: 'свет стратегия 41 стоп4' , scad: 'I205.0N81R8.1V4',      column: 'lamp_41_str_stop4'     , value:''},
-//     {name: 'свет стратегия 41 стоп5' , scad: 'I205.0N81R8.1V5',      column: 'lamp_41_str_stop5'     , value:''},
-//     {name: 'свет стратегия 41 стоп6' , scad: 'I205.0N81R8.1V6',      column: 'lamp_41_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_42 =[
-//     {name: 'свет стратегия 42 вкл1'  , scad: 'I205.0N81R6.1V1',      column: 'lamp_42_str_on1'       , value:''},
-//     {name: 'свет стратегия 42 вкл2'  , scad: 'I205.0N81R6.1V2',      column: 'lamp_42_str_on2'       , value:''},
-//     {name: 'свет стратегия 42 вкл3'  , scad: 'I205.0N81R6.1V3',      column: 'lamp_42_str_on3'       , value:''},
-//     {name: 'свет стратегия 42 вкл4'  , scad: 'I205.0N81R6.1V4',      column: 'lamp_42_str_on4'       , value:''},
-//     {name: 'свет стратегия 42 вкл5'  , scad: 'I205.0N81R6.1V5',      column: 'lamp_42_str_on5'       , value:''},
-//     {name: 'свет стратегия 42 вкл6'  , scad: 'I205.0N81R6.1V6',      column: 'lamp_42_str_on6'       , value:''},
-//     {name: 'свет стратегия 42 старт1', scad: 'I205.0N81R7.1V1',      column: 'lamp_42_str_start1'    , value:''},
-//     {name: 'свет стратегия 42 старт2', scad: 'I205.0N81R7.1V2',      column: 'lamp_42_str_start2'    , value:''},
-//     {name: 'свет стратегия 42 старт3', scad: 'I205.0N81R7.1V3',      column: 'lamp_42_str_start3'    , value:''},
-//     {name: 'свет стратегия 42 старт4', scad: 'I205.0N81R7.1V4',      column: 'lamp_42_str_start4'    , value:''},
-//     {name: 'свет стратегия 42 старт5', scad: 'I205.0N81R7.1V5',      column: 'lamp_42_str_start5'    , value:''},
-//     {name: 'свет стратегия 42 старт6', scad: 'I205.0N81R7.1V6',      column: 'lamp_42_str_start6'    , value:''},
-//     {name: 'свет стратегия 42 стоп1' , scad: 'I205.0N81R8.1V1',      column: 'lamp_42_str_stop1'     , value:''},
-//     {name: 'свет стратегия 42 стоп2' , scad: 'I205.0N81R8.1V2',      column: 'lamp_42_str_stop2'     , value:''},
-//     {name: 'свет стратегия 42 стоп3' , scad: 'I205.0N81R8.1V3',      column: 'lamp_42_str_stop3'     , value:''},
-//     {name: 'свет стратегия 42 стоп4' , scad: 'I205.0N81R8.1V4',      column: 'lamp_42_str_stop4'     , value:''},
-//     {name: 'свет стратегия 42 стоп5' , scad: 'I205.0N81R8.1V5',      column: 'lamp_42_str_stop5'     , value:''},
-//     {name: 'свет стратегия 42 стоп6' , scad: 'I205.0N81R8.1V6',      column: 'lamp_42_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_81 =[
-//     {name: 'свет стратегия 81 вкл1'  , scad: 'I205.0N81R6.1V1',      column: 'lamp_81_str_on1'       , value:''},
-//     {name: 'свет стратегия 81 вкл2'  , scad: 'I205.0N81R6.1V2',      column: 'lamp_81_str_on2'       , value:''},
-//     {name: 'свет стратегия 81 вкл3'  , scad: 'I205.0N81R6.1V3',      column: 'lamp_81_str_on3'       , value:''},
-//     {name: 'свет стратегия 81 вкл4'  , scad: 'I205.0N81R6.1V4',      column: 'lamp_81_str_on4'       , value:''},
-//     {name: 'свет стратегия 81 вкл5'  , scad: 'I205.0N81R6.1V5',      column: 'lamp_81_str_on5'       , value:''},
-//     {name: 'свет стратегия 81 вкл6'  , scad: 'I205.0N81R6.1V6',      column: 'lamp_81_str_on6'       , value:''},
-//     {name: 'свет стратегия 81 старт1', scad: 'I205.0N81R7.1V1',      column: 'lamp_81_str_start1'    , value:''},
-//     {name: 'свет стратегия 81 старт2', scad: 'I205.0N81R7.1V2',      column: 'lamp_81_str_start2'    , value:''},
-//     {name: 'свет стратегия 81 старт3', scad: 'I205.0N81R7.1V3',      column: 'lamp_81_str_start3'    , value:''},
-//     {name: 'свет стратегия 81 старт4', scad: 'I205.0N81R7.1V4',      column: 'lamp_81_str_start4'    , value:''},
-//     {name: 'свет стратегия 81 старт5', scad: 'I205.0N81R7.1V5',      column: 'lamp_81_str_start5'    , value:''},
-//     {name: 'свет стратегия 81 старт6', scad: 'I205.0N81R7.1V6',      column: 'lamp_81_str_start6'    , value:''},
-//     {name: 'свет стратегия 81 стоп1' , scad: 'I205.0N81R8.1V1',      column: 'lamp_81_str_stop1'     , value:''},
-//     {name: 'свет стратегия 81 стоп2' , scad: 'I205.0N81R8.1V2',      column: 'lamp_81_str_stop2'     , value:''},
-//     {name: 'свет стратегия 81 стоп3' , scad: 'I205.0N81R8.1V3',      column: 'lamp_81_str_stop3'     , value:''},
-//     {name: 'свет стратегия 81 стоп4' , scad: 'I205.0N81R8.1V4',      column: 'lamp_81_str_stop4'     , value:''},
-//     {name: 'свет стратегия 81 стоп5' , scad: 'I205.0N81R8.1V5',      column: 'lamp_81_str_stop5'     , value:''},
-//     {name: 'свет стратегия 81 стоп6' , scad: 'I205.0N81R8.1V6',      column: 'lamp_81_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_82 =[
-//     {name: 'свет стратегия 82 вкл1'  , scad: 'I205.0N81R6.1V1',      column: 'lamp_82_str_on1'       , value:''},
-//     {name: 'свет стратегия 82 вкл2'  , scad: 'I205.0N81R6.1V2',      column: 'lamp_82_str_on2'       , value:''},
-//     {name: 'свет стратегия 82 вкл3'  , scad: 'I205.0N81R6.1V3',      column: 'lamp_82_str_on3'       , value:''},
-//     {name: 'свет стратегия 82 вкл4'  , scad: 'I205.0N81R6.1V4',      column: 'lamp_82_str_on4'       , value:''},
-//     {name: 'свет стратегия 82 вкл5'  , scad: 'I205.0N81R6.1V5',      column: 'lamp_82_str_on5'       , value:''},
-//     {name: 'свет стратегия 82 вкл6'  , scad: 'I205.0N81R6.1V6',      column: 'lamp_82_str_on6'       , value:''},
-//     {name: 'свет стратегия 82 старт1', scad: 'I205.0N81R7.1V1',      column: 'lamp_82_str_start1'    , value:''},
-//     {name: 'свет стратегия 82 старт2', scad: 'I205.0N81R7.1V2',      column: 'lamp_82_str_start2'    , value:''},
-//     {name: 'свет стратегия 82 старт3', scad: 'I205.0N81R7.1V3',      column: 'lamp_82_str_start3'    , value:''},
-//     {name: 'свет стратегия 82 старт4', scad: 'I205.0N81R7.1V4',      column: 'lamp_82_str_start4'    , value:''},
-//     {name: 'свет стратегия 82 старт5', scad: 'I205.0N81R7.1V5',      column: 'lamp_82_str_start5'    , value:''},
-//     {name: 'свет стратегия 82 старт6', scad: 'I205.0N81R7.1V6',      column: 'lamp_82_str_start6'    , value:''},
-//     {name: 'свет стратегия 82 стоп1' , scad: 'I205.0N81R8.1V1',      column: 'lamp_82_str_stop1'     , value:''},
-//     {name: 'свет стратегия 82 стоп2' , scad: 'I205.0N81R8.1V2',      column: 'lamp_82_str_stop2'     , value:''},
-//     {name: 'свет стратегия 82 стоп3' , scad: 'I205.0N81R8.1V3',      column: 'lamp_82_str_stop3'     , value:''},
-//     {name: 'свет стратегия 82 стоп4' , scad: 'I205.0N81R8.1V4',      column: 'lamp_82_str_stop4'     , value:''},
-//     {name: 'свет стратегия 82 стоп5' , scad: 'I205.0N81R8.1V5',      column: 'lamp_82_str_stop5'     , value:''},
-//     {name: 'свет стратегия 82 стоп6' , scad: 'I205.0N81R8.1V6',      column: 'lamp_82_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_83 =[
-//     {name: 'свет стратегия 83 вкл1'  , scad: 'I205.0N81R6.1V1',      column: 'lamp_83_str_on1'       , value:''},
-//     {name: 'свет стратегия 83 вкл2'  , scad: 'I205.0N81R6.1V2',      column: 'lamp_83_str_on2'       , value:''},
-//     {name: 'свет стратегия 83 вкл3'  , scad: 'I205.0N81R6.1V3',      column: 'lamp_83_str_on3'       , value:''},
-//     {name: 'свет стратегия 83 вкл4'  , scad: 'I205.0N81R6.1V4',      column: 'lamp_83_str_on4'       , value:''},
-//     {name: 'свет стратегия 83 вкл5'  , scad: 'I205.0N81R6.1V5',      column: 'lamp_83_str_on5'       , value:''},
-//     {name: 'свет стратегия 83 вкл6'  , scad: 'I205.0N81R6.1V6',      column: 'lamp_83_str_on6'       , value:''},
-//     {name: 'свет стратегия 83 старт1', scad: 'I205.0N81R7.1V1',      column: 'lamp_83_str_start1'    , value:''},
-//     {name: 'свет стратегия 83 старт2', scad: 'I205.0N81R7.1V2',      column: 'lamp_83_str_start2'    , value:''},
-//     {name: 'свет стратегия 83 старт3', scad: 'I205.0N81R7.1V3',      column: 'lamp_83_str_start3'    , value:''},
-//     {name: 'свет стратегия 83 старт4', scad: 'I205.0N81R7.1V4',      column: 'lamp_83_str_start4'    , value:''},
-//     {name: 'свет стратегия 83 старт5', scad: 'I205.0N81R7.1V5',      column: 'lamp_83_str_start5'    , value:''},
-//     {name: 'свет стратегия 83 старт6', scad: 'I205.0N81R7.1V6',      column: 'lamp_83_str_start6'    , value:''},
-//     {name: 'свет стратегия 83 стоп1' , scad: 'I205.0N81R8.1V1',      column: 'lamp_83_str_stop1'     , value:''},
-//     {name: 'свет стратегия 83 стоп2' , scad: 'I205.0N81R8.1V2',      column: 'lamp_83_str_stop2'     , value:''},
-//     {name: 'свет стратегия 83 стоп3' , scad: 'I205.0N81R8.1V3',      column: 'lamp_83_str_stop3'     , value:''},
-//     {name: 'свет стратегия 83 стоп4' , scad: 'I205.0N81R8.1V4',      column: 'lamp_83_str_stop4'     , value:''},
-//     {name: 'свет стратегия 83 стоп5' , scad: 'I205.0N81R8.1V5',      column: 'lamp_83_str_stop5'     , value:''},
-//     {name: 'свет стратегия 83 стоп6' , scad: 'I205.0N81R8.1V6',      column: 'lamp_83_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_91 =[
-//     {name: 'свет стратегия 91 вкл1'  , scad: 'I205.0N81R6.1V1',      column: 'lamp_91_str_on1'       , value:''},
-//     {name: 'свет стратегия 91 вкл2'  , scad: 'I205.0N81R6.1V2',      column: 'lamp_91_str_on2'       , value:''},
-//     {name: 'свет стратегия 91 вкл3'  , scad: 'I205.0N81R6.1V3',      column: 'lamp_91_str_on3'       , value:''},
-//     {name: 'свет стратегия 91 вкл4'  , scad: 'I205.0N81R6.1V4',      column: 'lamp_91_str_on4'       , value:''},
-//     {name: 'свет стратегия 91 вкл5'  , scad: 'I205.0N81R6.1V5',      column: 'lamp_91_str_on5'       , value:''},
-//     {name: 'свет стратегия 91 вкл6'  , scad: 'I205.0N81R6.1V6',      column: 'lamp_91_str_on6'       , value:''},
-//     {name: 'свет стратегия 91 старт1', scad: 'I205.0N81R7.1V1',      column: 'lamp_91_str_start1'    , value:''},
-//     {name: 'свет стратегия 91 старт2', scad: 'I205.0N81R7.1V2',      column: 'lamp_91_str_start2'    , value:''},
-//     {name: 'свет стратегия 91 старт3', scad: 'I205.0N81R7.1V3',      column: 'lamp_91_str_start3'    , value:''},
-//     {name: 'свет стратегия 91 старт4', scad: 'I205.0N81R7.1V4',      column: 'lamp_91_str_start4'    , value:''},
-//     {name: 'свет стратегия 91 старт5', scad: 'I205.0N81R7.1V5',      column: 'lamp_91_str_start5'    , value:''},
-//     {name: 'свет стратегия 91 старт6', scad: 'I205.0N81R7.1V6',      column: 'lamp_91_str_start6'    , value:''},
-//     {name: 'свет стратегия 91 стоп1' , scad: 'I205.0N81R8.1V1',      column: 'lamp_91_str_stop1'     , value:''},
-//     {name: 'свет стратегия 91 стоп2' , scad: 'I205.0N81R8.1V2',      column: 'lamp_91_str_stop2'     , value:''},
-//     {name: 'свет стратегия 91 стоп3' , scad: 'I205.0N81R8.1V3',      column: 'lamp_91_str_stop3'     , value:''},
-//     {name: 'свет стратегия 91 стоп4' , scad: 'I205.0N81R8.1V4',      column: 'lamp_91_str_stop4'     , value:''},
-//     {name: 'свет стратегия 91 стоп6' , scad: 'I205.0N81R8.1V6',      column: 'lamp_91_str_stop6'     , value:''},
-// ]
-//
-// const AGRO_light_str_92 =[
-//     {name: 'свет стратегия 92 вкл1'  , scad: 'I205.0N81R6.1V1',      column: 'lamp_92_str_on1'       , value:''},
-//     {name: 'свет стратегия 92 вкл2'  , scad: 'I205.0N81R6.1V2',      column: 'lamp_92_str_on2'       , value:''},
-//     {name: 'свет стратегия 92 вкл3'  , scad: 'I205.0N81R6.1V3',      column: 'lamp_92_str_on3'       , value:''},
-//     {name: 'свет стратегия 92 вкл4'  , scad: 'I205.0N81R6.1V4',      column: 'lamp_92_str_on4'       , value:''},
-//     {name: 'свет стратегия 92 вкл5'  , scad: 'I205.0N81R6.1V5',      column: 'lamp_92_str_on5'       , value:''},
-//     {name: 'свет стратегия 92 вкл6'  , scad: 'I205.0N81R6.1V6',      column: 'lamp_92_str_on6'       , value:''},
-//     {name: 'свет стратегия 92 старт1', scad: 'I205.0N81R7.1V1',      column: 'lamp_92_str_start1'    , value:''},
-//     {name: 'свет стратегия 92 старт2', scad: 'I205.0N81R7.1V2',      column: 'lamp_92_str_start2'    , value:''},
-//     {name: 'свет стратегия 92 старт3', scad: 'I205.0N81R7.1V3',      column: 'lamp_92_str_start3'    , value:''},
-//     {name: 'свет стратегия 92 старт4', scad: 'I205.0N81R7.1V4',      column: 'lamp_92_str_start4'    , value:''},
-//     {name: 'свет стратегия 92 старт5', scad: 'I205.0N81R7.1V5',      column: 'lamp_92_str_start5'    , value:''},
-//     {name: 'свет стратегия 92 старт6', scad: 'I205.0N81R7.1V6',      column: 'lamp_92_str_start6'    , value:''},
-//     {name: 'свет стратегия 92 стоп1' , scad: 'I205.0N81R8.1V1',      column: 'lamp_92_str_stop1'     , value:''},
-//     {name: 'свет стратегия 92 стоп2' , scad: 'I205.0N81R8.1V2',      column: 'lamp_92_str_stop2'     , value:''},
-//     {name: 'свет стратегия 92 стоп3' , scad: 'I205.0N81R8.1V3',      column: 'lamp_92_str_stop3'     , value:''},
-//     {name: 'свет стратегия 92 стоп4' , scad: 'I205.0N81R8.1V4',      column: 'lamp_92_str_stop4'     , value:''},
-//     {name: 'свет стратегия 92 стоп5' , scad: 'I205.0N81R8.1V5',      column: 'lamp_92_str_stop5'     , value:''},
-//     {name: 'свет стратегия 92 стоп6' , scad: 'I205.0N81R8.1V6',      column: 'lamp_92_str_stop6'     , value:''},
-//
-// ]
-//
-// const AGRO_light_str_93 =[
-//     {name: 'свет стратегия 93 вкл1'  , scad: 'I205.0N81R6.1V1',      column: 'lamp_93_str_on1'       , value:''},
-//     {name: 'свет стратегия 93 вкл2'  , scad: 'I205.0N81R6.1V2',      column: 'lamp_93_str_on2'       , value:''},
-//     {name: 'свет стратегия 93 вкл3'  , scad: 'I205.0N81R6.1V3',      column: 'lamp_93_str_on3'       , value:''},
-//     {name: 'свет стратегия 93 вкл4'  , scad: 'I205.0N81R6.1V4',      column: 'lamp_93_str_on4'       , value:''},
-//     {name: 'свет стратегия 93 вкл5'  , scad: 'I205.0N81R6.1V5',      column: 'lamp_93_str_on5'       , value:''},
-//     {name: 'свет стратегия 93 вкл6'  , scad: 'I205.0N81R6.1V6',      column: 'lamp_93_str_on6'       , value:''},
-//     {name: 'свет стратегия 93 старт1', scad: 'I205.0N81R7.1V1',      column: 'lamp_93_str_start1'    , value:''},
-//     {name: 'свет стратегия 93 старт2', scad: 'I205.0N81R7.1V2',      column: 'lamp_93_str_start2'    , value:''},
-//     {name: 'свет стратегия 93 старт3', scad: 'I205.0N81R7.1V3',      column: 'lamp_93_str_start3'    , value:''},
-//     {name: 'свет стратегия 93 старт4', scad: 'I205.0N81R7.1V4',      column: 'lamp_93_str_start4'    , value:''},
-//     {name: 'свет стратегия 93 старт5', scad: 'I205.0N81R7.1V5',      column: 'lamp_93_str_start5'    , value:''},
-//     {name: 'свет стратегия 93 старт6', scad: 'I205.0N81R7.1V6',      column: 'lamp_93_str_start6'    , value:''},
-//     {name: 'свет стратегия 93 стоп1' , scad: 'I205.0N81R8.1V1',      column: 'lamp_93_str_stop1'     , value:''},
-//     {name: 'свет стратегия 93 стоп2' , scad: 'I205.0N81R8.1V2',      column: 'lamp_93_str_stop2'     , value:''},
-//     {name: 'свет стратегия 93 стоп3' , scad: 'I205.0N81R8.1V3',      column: 'lamp_93_str_stop3'     , value:''},
-//     {name: 'свет стратегия 93 стоп4' , scad: 'I205.0N81R8.1V4',      column: 'lamp_93_str_stop4'     , value:''},
-//     {name: 'свет стратегия 93 стоп5' , scad: 'I205.0N81R8.1V5',      column: 'lamp_93_str_stop5'     , value:''},
-//     {name: 'свет стратегия 93 стоп6' , scad: 'I205.0N81R8.1V6',      column: 'lamp_93_str_stop6'     , value:''},
-//
-// ]
-//
-//
-// const SunRise =[
-//     {name: 'восход'  , scad: 'M4.0N1R19.1V1',      column: 'sunrise'       , value:''},
-//     {name: 'закат'   , scad: 'M4.0N1R19.1V2',      column: 'sunset'        , value:''},
-//
-//
-// ]
+    {name: 'Наружная темп.'     , scad: 'M4.0N1R4.1V1',       column: 'temp'        , value:''},
+    {name: 'Скорость ветра'     , scad: 'M4.0N1R14.1V1',      column: 'wind'        , value:''},
+    {name: 'Направление ветра'  , scad: 'M4.0N1R16.1V1',      column: 'wind_dir'    , value:''},
+    {name: 'Освещенность'       , scad: 'M4.0N1R38.1V1',      column: 'light'       , value:''},
+    {name: 'Изм. освещенность'  , scad: 'M4.0N1R38.1V2',      column: 'mLight'      , value:''},
+    {name: 'Сумма освещенности' , scad: 'M4.0N1R39.1V1',      column: 'sumLight'    , value:''},
+    {name: 'Дождь'              , scad: 'M4.0N1R1.1V1',       column: 'rain'        , value:''},
+    {name: 'Буря'               , scad: 'M4.0N1R1.1V2',       column: 'storm'       , value:''},
+    {name: 'Мороз'              , scad: 'M4.0N1R1.1V3',       column: 'cold'        , value:''},
+    {name: 'Восход'             , scad: 'M4.0N1R27.1V1',      column: 'sunrise'     , value:''},
+    {name: 'Закат'              , scad: 'M4.0N1R27.1V2',      column: 'sunset'      , value:''},
 
-module.exports = {  commonAGRO_12, commonAGRO_345, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14,
+]
 
-    // AGRO605_water, AGRO606_water, AGRO607_water,
-    //
-    // AGRO605_10_co2, AGRO605_50_co2, AGRO606_20_co2, AGRO606_60_co2, AGRO606_70_co2, AGRO607_30_co2, AGRO607_40_co2,  AGRO607_80_co2,  AGRO607_90_co2,
-    // AGRO605_light, AGRO606_light, AGRO607_light,
-    //
-    // AGRO_light_str_11, AGRO_light_str_12, AGRO_light_str_13, AGRO_light_str_14,
-    // AGRO_light_str_51, AGRO_light_str_52,
-    // AGRO_light_str_21, AGRO_light_str_22, AGRO_light_str_23, AGRO_light_str_24,
-    // AGRO_light_str_61, AGRO_light_str_62, AGRO_light_str_63,
-    // AGRO_light_str_71, AGRO_light_str_72, AGRO_light_str_73,
-    // AGRO_light_str_31, AGRO_light_str_32,
-    // AGRO_light_str_41, AGRO_light_str_42,
-    // AGRO_light_str_81, AGRO_light_str_82, AGRO_light_str_83,
-    // AGRO_light_str_91, AGRO_light_str_92, AGRO_light_str_93,
-    //
-    // SunRise,
+
+const bobrov3_M432_water =[
+    {name: 'расход 6 1'          , scad: 'M432.1N1R4.31V1',   column: 'M432_6_1'          , value:''},
+    {name: 'расход 6 2'          , scad: 'M432.1N1R4.31V2',   column: 'M432_6_2'          , value:''},
+    {name: 'расход 7 1'          , scad: 'M432.1N1R4.32V1',   column: 'M432_7_1'          , value:''},
+    {name: 'расход 7 2'          , scad: 'M432.1N1R4.32V2',   column: 'M432_7_2'          , value:''},
+    {name: 'расход 8 1'          , scad: 'M432.1N1R4.61V1',   column: 'M432_8_1'          , value:''},
+    {name: 'расход 8 2'          , scad: 'M432.1N1R4.61V2',   column: 'M432_8_2'          , value:''},
+    {name: 'расход 8 3'          , scad: 'M432.1N1R4.62V1',   column: 'M432_8_3'          , value:''},
+    {name: 'расход 8 4'          , scad: 'M432.1N1R4.62V2',   column: 'M432_8_4'          , value:''},
+    {name: 'расход 9 1'          , scad: 'M432.1N1R4.63V1',   column: 'M432_9_1'          , value:''},
+    {name: 'расход 9 2'          , scad: 'M432.1N1R4.63V2',   column: 'M432_9_2'          , value:''},
+    {name: 'расход 9 1'          , scad: 'M432.1N1R4.64V1',   column: 'M432_9_3'          , value:''},
+    {name: 'расход 9 2'          , scad: 'M432.1N1R4.64V2',   column: 'M432_9_4'          , value:''},
+]
+
+const bobrov4_M432_water =[
+    {name: 'расход 10 1'          , scad: 'M432.1N1R4.51V1',   column: 'M432_10_1'          , value:''},
+    {name: 'расход 10 2'          , scad: 'M432.1N1R4.51V2',   column: 'M432_10_2'          , value:''},
+    {name: 'расход 11 1'          , scad: 'M432.1N1R4.52V1',   column: 'M432_11_1'          , value:''},
+    {name: 'расход 11 2'          , scad: 'M432.1N1R4.52V2',   column: 'M432_11_2'          , value:''},
+    {name: 'расход 12 1'          , scad: 'M432.1N1R4.53V1',   column: 'M432_12_1'          , value:''},
+    {name: 'расход 12 2'          , scad: 'M432.1N1R4.53V2',   column: 'M432_12_2'          , value:''},
+    {name: 'расход 12 3'          , scad: 'M432.1N1R4.54V1',   column: 'M432_12_3'          , value:''},
+    {name: 'расход 12 4'          , scad: 'M432.1N1R4.54V2',   column: 'M432_12_4'          , value:''},
+
+]
+
+const bobrov5_M432_water =[
+    {name: 'расход 13 1'          , scad: 'M432.1N1R4.41V1',   column: 'M432_13_1'          , value:''},
+    {name: 'расход 13 2'          , scad: 'M432.1N1R4.41V2',   column: 'M432_13_2'          , value:''},
+    {name: 'расход 13 3'          , scad: 'M432.1N1R4.42V1',   column: 'M432_13_3'          , value:''},
+    {name: 'расход 13 4'          , scad: 'M432.1N1R4.42V2',   column: 'M432_13_4'          , value:''},
+    {name: 'расход 14 1'          , scad: 'M432.1N1R4.43V1',   column: 'M432_14_1'          , value:''},
+    {name: 'расход 14 2'          , scad: 'M432.1N1R4.43V2',   column: 'M432_14_2'          , value:''},
+    {name: 'расход 14 3'          , scad: 'M432.1N1R4.44V1',   column: 'M432_14_3'          , value:''},
+    {name: 'расход 14 4'          , scad: 'M432.1N1R4.44V2',   column: 'M432_14_4'          , value:''},
+
+]
+
+
+const bobrov3_M203_light =[
+
+    {name: 'свет 6 контур 1a'      , scad: 'M203.1N1R3.311V1',    column: 'lamp_6_cont1a'         , value:''},
+    {name: 'свет 6 контур 1b'      , scad: 'M203.1N1R3.311V2',    column: 'lamp_6_cont1b'         , value:''},
+    {name: 'свет 6 контур 2a'      , scad: 'M203.1N1R3.312V1',    column: 'lamp_6_cont2a'         , value:''},
+    {name: 'свет 6 контур 2b'      , scad: 'M203.1N1R3.312V2',    column: 'lamp_6_cont2b'         , value:''},
+    {name: 'свет 6 контур 3a'      , scad: 'M203.1N1R3.313V1',    column: 'lamp_6_cont3a'         , value:''},
+    {name: 'свет 6 контур 3b'      , scad: 'M203.1N1R3.313V2',    column: 'lamp_6_cont3b'         , value:''},
+    {name: 'свет 6 контур 4a'      , scad: 'M203.1N1R3.314V1',    column: 'lamp_6_cont4a'         , value:''},
+    {name: 'свет 6 контур 4b'      , scad: 'M203.1N1R3.314V2',    column: 'lamp_6_cont4b'         , value:''},
+
+    {name: 'свет 7 контур 1a'      , scad: 'M203.1N1R3.321V1',    column: 'lamp_7_cont1a'         , value:''},
+    {name: 'свет 7 контур 1b'      , scad: 'M203.1N1R3.321V2',    column: 'lamp_7_cont1b'         , value:''},
+    {name: 'свет 7 контур 2a'      , scad: 'M203.1N1R3.322V1',    column: 'lamp_7_cont2a'         , value:''},
+    {name: 'свет 7 контур 2b'      , scad: 'M203.1N1R3.322V2',    column: 'lamp_7_cont2b'         , value:''},
+    {name: 'свет 7 контур 3a'      , scad: 'M203.1N1R3.323V1',    column: 'lamp_7_cont3a'         , value:''},
+    {name: 'свет 7 контур 3b'      , scad: 'M203.1N1R3.323V2',    column: 'lamp_7_cont3b'         , value:''},
+    {name: 'свет 7 контур 4a'      , scad: 'M203.1N1R3.324V1',    column: 'lamp_7_cont4a'         , value:''},
+    {name: 'свет 7 контур 4b'      , scad: 'M203.1N1R3.324V2',    column: 'lamp_7_cont4b'         , value:''},
+
+    {name: 'свет 8 контур 1a'      , scad: 'M203.1N1R3.611V1',    column: 'lamp_8_cont1a'         , value:''},
+    {name: 'свет 8 контур 1b'      , scad: 'M203.1N1R3.611V2',    column: 'lamp_8_cont1b'         , value:''},
+    {name: 'свет 8 контур 2a'      , scad: 'M203.1N1R3.612V1',    column: 'lamp_8_cont2a'         , value:''},
+    {name: 'свет 8 контур 2b'      , scad: 'M203.1N1R3.612V2',    column: 'lamp_8_cont2b'         , value:''},
+    {name: 'свет 8 контур 3a'      , scad: 'M203.1N1R3.613V1',    column: 'lamp_8_cont3a'         , value:''},
+    {name: 'свет 8 контур 3b'      , scad: 'M203.1N1R3.613V2',    column: 'lamp_8_cont3b'         , value:''},
+    {name: 'свет 8 контур 4a'      , scad: 'M203.1N1R3.614V1',    column: 'lamp_8_cont4a'         , value:''},
+    {name: 'свет 8 контур 4b'      , scad: 'M203.1N1R3.614V2',    column: 'lamp_8_cont4b'         , value:''},
+    {name: 'свет 8 контур 5a'      , scad: 'M203.1N1R3.615V1',    column: 'lamp_8_cont5a'         , value:''},
+    {name: 'свет 8 контур 5b'      , scad: 'M203.1N1R3.615V2',    column: 'lamp_8_cont5b'         , value:''},
+    {name: 'свет 8 контур 6a'      , scad: 'M203.1N1R3.616V1',    column: 'lamp_8_cont6a'         , value:''},
+    {name: 'свет 8 контур 6b'      , scad: 'M203.1N1R3.616V2',    column: 'lamp_8_cont6b'         , value:''},
+
+    {name: 'свет 9 контур 1a'      , scad: 'M203.1N1R3.621V1',    column: 'lamp_9_cont1a'         , value:''},
+    {name: 'свет 9 контур 1b'      , scad: 'M203.1N1R3.621V2',    column: 'lamp_9_cont1b'         , value:''},
+    {name: 'свет 9 контур 2a'      , scad: 'M203.1N1R3.622V1',    column: 'lamp_9_cont2a'         , value:''},
+    {name: 'свет 9 контур 2b'      , scad: 'M203.1N1R3.622V2',    column: 'lamp_9_cont2b'         , value:''},
+    {name: 'свет 9 контур 3a'      , scad: 'M203.1N1R3.623V1',    column: 'lamp_9_cont3a'         , value:''},
+    {name: 'свет 9 контур 3b'      , scad: 'M203.1N1R3.623V2',    column: 'lamp_9_cont3b'         , value:''},
+    {name: 'свет 9 контур 4a'      , scad: 'M203.1N1R3.624V1',    column: 'lamp_9_cont4a'         , value:''},
+    {name: 'свет 9 контур 4b'      , scad: 'M203.1N1R3.624V2',    column: 'lamp_9_cont4b'         , value:''},
+    {name: 'свет 9 контур 5a'      , scad: 'M203.1N1R3.625V1',    column: 'lamp_9_cont5a'         , value:''},
+    {name: 'свет 9 контур 5b'      , scad: 'M203.1N1R3.625V2',    column: 'lamp_9_cont5b'         , value:''},
+    {name: 'свет 9 контур 6a'      , scad: 'M203.1N1R3.626V1',    column: 'lamp_9_cont6a'         , value:''},
+    {name: 'свет 9 контур 6b'      , scad: 'M203.1N1R3.626V2',    column: 'lamp_9_cont6b'         , value:''},
+
+]
+
+const bobrov4_M203_light =[
+
+    {name: 'свет 10 контур 1a'      , scad: 'M203.1N1R3.514V1',    column: 'lamp_10_cont1a'         , value:''},
+    {name: 'свет 10 контур 1b'      , scad: 'M203.1N1R3.514V2',    column: 'lamp_10_cont1b'         , value:''},
+    {name: 'свет 10 контур 2a'      , scad: 'M203.1N1R3.515V1',    column: 'lamp_10_cont2a'         , value:''},
+    {name: 'свет 10 контур 2b'      , scad: 'M203.1N1R3.515V2',    column: 'lamp_10_cont2b'         , value:''},
+    {name: 'свет 10 контур 3a'      , scad: 'M203.1N1R3.516V1',    column: 'lamp_10_cont3a'         , value:''},
+    {name: 'свет 10 контур 3b'      , scad: 'M203.1N1R3.516V2',    column: 'lamp_10_cont3b'         , value:''},
+
+    {name: 'свет 11 контур 1a'      , scad: 'M203.1N1R3.511V1',    column: 'lamp_11_cont1a'         , value:''},
+    {name: 'свет 11 контур 1b'      , scad: 'M203.1N1R3.511V2',    column: 'lamp_11_cont1b'         , value:''},
+    {name: 'свет 11 контур 2a'      , scad: 'M203.1N1R3.512V1',    column: 'lamp_11_cont2a'         , value:''},
+    {name: 'свет 11 контур 2b'      , scad: 'M203.1N1R3.512V2',    column: 'lamp_11_cont2b'         , value:''},
+    {name: 'свет 11 контур 3a'      , scad: 'M203.1N1R3.513V1',    column: 'lamp_11_cont3a'         , value:''},
+    {name: 'свет 11 контур 3b'      , scad: 'M203.1N1R3.513V2',    column: 'lamp_11_cont3b'         , value:''},
+
+    {name: 'свет 12 контур 1a'      , scad: 'M203.1N1R3.521V1',    column: 'lamp_12_cont1a'         , value:''},
+    {name: 'свет 12 контур 1b'      , scad: 'M203.1N1R3.521V2',    column: 'lamp_12_cont1b'         , value:''},
+    {name: 'свет 12 контур 2a'      , scad: 'M203.1N1R3.522V1',    column: 'lamp_12_cont2a'         , value:''},
+    {name: 'свет 12 контур 2b'      , scad: 'M203.1N1R3.522V2',    column: 'lamp_12_cont2b'         , value:''},
+    {name: 'свет 12 контур 3a'      , scad: 'M203.1N1R3.523V1',    column: 'lamp_12_cont3a'         , value:''},
+    {name: 'свет 12 контур 3b'      , scad: 'M203.1N1R3.523V2',    column: 'lamp_12_cont3b'         , value:''},
+    {name: 'свет 12 контур 4a'      , scad: 'M203.1N1R3.524V1',    column: 'lamp_12_cont4a'         , value:''},
+    {name: 'свет 12 контур 4b'      , scad: 'M203.1N1R3.524V2',    column: 'lamp_12_cont4b'         , value:''},
+    {name: 'свет 12 контур 5a'      , scad: 'M203.1N1R3.525V1',    column: 'lamp_12_cont5a'         , value:''},
+    {name: 'свет 12 контур 5b'      , scad: 'M203.1N1R3.525V2',    column: 'lamp_12_cont5b'         , value:''},
+    {name: 'свет 12 контур 6a'      , scad: 'M203.1N1R3.526V1',    column: 'lamp_12_cont6a'         , value:''},
+    {name: 'свет 12 контур 6b'      , scad: 'M203.1N1R3.526V2',    column: 'lamp_12_cont6b'         , value:''},
+
+]
+
+const bobrov5_M203_light =[
+
+    {name: 'свет 13 контур 1a'      , scad: 'M203.1N1R3.411V1',    column: 'lamp_13_cont1a'         , value:''},
+    {name: 'свет 13 контур 1b'      , scad: 'M203.1N1R3.411V2',    column: 'lamp_13_cont1b'         , value:''},
+    {name: 'свет 13 контур 2a'      , scad: 'M203.1N1R3.412V1',    column: 'lamp_13_cont2a'         , value:''},
+    {name: 'свет 13 контур 2b'      , scad: 'M203.1N1R3.412V2',    column: 'lamp_13_cont2b'         , value:''},
+    {name: 'свет 13 контур 3a'      , scad: 'M203.1N1R3.413V1',    column: 'lamp_13_cont3a'         , value:''},
+    {name: 'свет 13 контур 3b'      , scad: 'M203.1N1R3.413V2',    column: 'lamp_13_cont3b'         , value:''},
+    {name: 'свет 13 контур 4a'      , scad: 'M203.1N1R3.414V1',    column: 'lamp_13_cont4a'         , value:''},
+    {name: 'свет 13 контур 4b'      , scad: 'M203.1N1R3.414V2',    column: 'lamp_13_cont4b'         , value:''},
+    {name: 'свет 13 контур 5a'      , scad: 'M203.1N1R3.415V1',    column: 'lamp_13_cont5a'         , value:''},
+    {name: 'свет 13 контур 5b'      , scad: 'M203.1N1R3.415V2',    column: 'lamp_13_cont5b'         , value:''},
+    {name: 'свет 13 контур 6a'      , scad: 'M203.1N1R3.416V1',    column: 'lamp_13_cont6a'         , value:''},
+    {name: 'свет 13 контур 6b'      , scad: 'M203.1N1R3.416V2',    column: 'lamp_13_cont6b'         , value:''},
+
+    {name: 'свет 14 контур 1a'      , scad: 'M203.1N1R3.421V1',    column: 'lamp_14_cont1a'         , value:''},
+    {name: 'свет 14 контур 1b'      , scad: 'M203.1N1R3.421V2',    column: 'lamp_14_cont1b'         , value:''},
+    {name: 'свет 14 контур 2a'      , scad: 'M203.1N1R3.422V1',    column: 'lamp_14_cont2a'         , value:''},
+    {name: 'свет 14 контур 2b'      , scad: 'M203.1N1R3.422V2',    column: 'lamp_14_cont2b'         , value:''},
+    {name: 'свет 14 контур 3a'      , scad: 'M203.1N1R3.423V1',    column: 'lamp_14_cont3a'         , value:''},
+    {name: 'свет 14 контур 3b'      , scad: 'M203.1N1R3.423V2',    column: 'lamp_14_cont3b'         , value:''},
+    {name: 'свет 14 контур 4a'      , scad: 'M203.1N1R3.424V1',    column: 'lamp_14_cont4a'         , value:''},
+    {name: 'свет 14 контур 4b'      , scad: 'M203.1N1R3.424V2',    column: 'lamp_14_cont4b'         , value:''},
+    {name: 'свет 14 контур 5a'      , scad: 'M203.1N1R3.425V1',    column: 'lamp_14_cont5a'         , value:''},
+    {name: 'свет 14 контур 5b'      , scad: 'M203.1N1R3.425V2',    column: 'lamp_14_cont5b'         , value:''},
+    {name: 'свет 14 контур 6a'      , scad: 'M203.1N1R3.426V1',    column: 'lamp_14_cont6a'         , value:''},
+    {name: 'свет 14 контур 6b'      , scad: 'M203.1N1R3.426V2',    column: 'lamp_14_cont6b'         , value:''},
+
+]
+
+const bobrov3_6_co2 =[
+    {name: 'дозация СО2'           , scad: 'M170.1N31R2.2V6',   column: 'co2_6'          , value:''},
+]
+const bobrov3_7_co2 =[
+    {name: 'дозация СО2'           , scad: 'M170.1N32R2.2V6',   column: 'co2_7'          , value:''},
+]
+const bobrov3_8_co2 =[
+    {name: 'дозация СО2'           , scad: 'M170.1N61R2.2V6',   column: 'co2_8'          , value:''},
+]
+const bobrov3_9_co2 =[
+    {name: 'дозация СО2'           , scad: 'M170.1N62R2.2V6',   column: 'co2_9'          , value:''},
+]
+const bobrov4_10_co2 =[
+    {name: 'дозация СО2'           , scad: 'M170.1N51R2.2V6',   column: 'co2_10'          , value:''},
+]
+const bobrov4_11_co2 =[
+    {name: 'дозация СО2'           , scad: 'M170.1N52R2.2V6',   column: 'co2_11'          , value:''},
+]
+const bobrov4_12_co2 =[
+    {name: 'дозация СО2'           , scad: 'M170.1N53R2.2V6',   column: 'co2_12'          , value:''},
+]
+const bobrov5_13_co2 =[
+    {name: 'дозация СО2'           , scad: 'M170.1N41R2.2V6',   column: 'co2_13'          , value:''},
+]
+const bobrov5_14_co2 =[
+    {name: 'дозация СО2'           , scad: 'M170.1N42R2.2V6',   column: 'co2_14'          , value:''},
+]
+
+
+const bobrov3_light_str_6 =[
+    {name: 'свет стратегия 6 вкл1'  , scad: 'I205.0N31R6.1V1',      column: 'lamp_6_str_on1'       , value:''},
+    {name: 'свет стратегия 6 вкл2'  , scad: 'I205.0N31R6.1V2',      column: 'lamp_6_str_on2'       , value:''},
+    {name: 'свет стратегия 6 вкл3'  , scad: 'I205.0N31R6.1V3',      column: 'lamp_6_str_on3'       , value:''},
+    {name: 'свет стратегия 6 вкл4'  , scad: 'I205.0N31R6.1V4',      column: 'lamp_6_str_on4'       , value:''},
+    {name: 'свет стратегия 6 вкл5'  , scad: 'I205.0N31R6.1V5',      column: 'lamp_6_str_on5'       , value:''},
+    {name: 'свет стратегия 6 вкл6'  , scad: 'I205.0N31R6.1V6',      column: 'lamp_6_str_on6'       , value:''},
+    {name: 'свет стратегия 6 старт1', scad: 'I205.0N31R7.1V1',      column: 'lamp_6_str_start1'    , value:''},
+    {name: 'свет стратегия 6 старт2', scad: 'I205.0N31R7.1V2',      column: 'lamp_6_str_start2'    , value:''},
+    {name: 'свет стратегия 6 старт3', scad: 'I205.0N31R7.1V3',      column: 'lamp_6_str_start3'    , value:''},
+    {name: 'свет стратегия 6 старт4', scad: 'I205.0N31R7.1V4',      column: 'lamp_6_str_start4'    , value:''},
+    {name: 'свет стратегия 6 старт5', scad: 'I205.0N31R7.1V5',      column: 'lamp_6_str_start5'    , value:''},
+    {name: 'свет стратегия 6 старт6', scad: 'I205.0N31R7.1V6',      column: 'lamp_6_str_start6'    , value:''},
+    {name: 'свет стратегия 6 стоп1' , scad: 'I205.0N31R8.1V1',      column: 'lamp_6_str_stop1'     , value:''},
+    {name: 'свет стратегия 6 стоп2' , scad: 'I205.0N31R8.1V2',      column: 'lamp_6_str_stop2'     , value:''},
+    {name: 'свет стратегия 6 стоп3' , scad: 'I205.0N31R8.1V3',      column: 'lamp_6_str_stop3'     , value:''},
+    {name: 'свет стратегия 6 стоп4' , scad: 'I205.0N31R8.1V4',      column: 'lamp_6_str_stop4'     , value:''},
+    {name: 'свет стратегия 6 стоп5' , scad: 'I205.0N31R8.1V5',      column: 'lamp_6_str_stop5'     , value:''},
+    {name: 'свет стратегия 6 стоп6' , scad: 'I205.0N31R8.1V6',      column: 'lamp_6_str_stop6'     , value:''},
+
+]
+
+const bobrov3_light_str_7 =[
+    {name: 'свет стратегия 7 вкл1'  , scad: 'I205.0N32R6.1V1',      column: 'lamp_7_str_on1'       , value:''},
+    {name: 'свет стратегия 7 вкл2'  , scad: 'I205.0N32R6.1V2',      column: 'lamp_7_str_on2'       , value:''},
+    {name: 'свет стратегия 7 вкл3'  , scad: 'I205.0N32R6.1V3',      column: 'lamp_7_str_on3'       , value:''},
+    {name: 'свет стратегия 7 вкл4'  , scad: 'I205.0N32R6.1V4',      column: 'lamp_7_str_on4'       , value:''},
+    {name: 'свет стратегия 7 вкл5'  , scad: 'I205.0N32R6.1V5',      column: 'lamp_7_str_on5'       , value:''},
+    {name: 'свет стратегия 7 вкл6'  , scad: 'I205.0N32R6.1V6',      column: 'lamp_7_str_on6'       , value:''},
+    {name: 'свет стратегия 7 старт1', scad: 'I205.0N32R7.1V1',      column: 'lamp_7_str_start1'    , value:''},
+    {name: 'свет стратегия 7 старт2', scad: 'I205.0N32R7.1V2',      column: 'lamp_7_str_start2'    , value:''},
+    {name: 'свет стратегия 7 старт3', scad: 'I205.0N32R7.1V3',      column: 'lamp_7_str_start3'    , value:''},
+    {name: 'свет стратегия 7 старт4', scad: 'I205.0N32R7.1V4',      column: 'lamp_7_str_start4'    , value:''},
+    {name: 'свет стратегия 7 старт5', scad: 'I205.0N32R7.1V5',      column: 'lamp_7_str_start5'    , value:''},
+    {name: 'свет стратегия 7 старт6', scad: 'I205.0N32R7.1V6',      column: 'lamp_7_str_start6'    , value:''},
+    {name: 'свет стратегия 7 стоп1' , scad: 'I205.0N32R8.1V1',      column: 'lamp_7_str_stop1'     , value:''},
+    {name: 'свет стратегия 7 стоп2' , scad: 'I205.0N32R8.1V2',      column: 'lamp_7_str_stop2'     , value:''},
+    {name: 'свет стратегия 7 стоп3' , scad: 'I205.0N32R8.1V3',      column: 'lamp_7_str_stop3'     , value:''},
+    {name: 'свет стратегия 7 стоп4' , scad: 'I205.0N32R8.1V4',      column: 'lamp_7_str_stop4'     , value:''},
+    {name: 'свет стратегия 7 стоп5' , scad: 'I205.0N32R8.1V5',      column: 'lamp_7_str_stop5'     , value:''},
+    {name: 'свет стратегия 7 стоп6' , scad: 'I205.0N32R8.1V6',      column: 'lamp_7_str_stop6'     , value:''},
+
+]
+
+const bobrov3_light_str_8 =[
+    {name: 'свет стратегия 8 вкл1'  , scad: 'I205.0N61R6.1V1',      column: 'lamp_8_str_on1'       , value:''},
+    {name: 'свет стратегия 8 вкл2'  , scad: 'I205.0N61R6.1V2',      column: 'lamp_8_str_on2'       , value:''},
+    {name: 'свет стратегия 8 вкл3'  , scad: 'I205.0N61R6.1V3',      column: 'lamp_8_str_on3'       , value:''},
+    {name: 'свет стратегия 8 вкл4'  , scad: 'I205.0N61R6.1V4',      column: 'lamp_8_str_on4'       , value:''},
+    {name: 'свет стратегия 8 вкл5'  , scad: 'I205.0N61R6.1V5',      column: 'lamp_8_str_on5'       , value:''},
+    {name: 'свет стратегия 8 вкл6'  , scad: 'I205.0N61R6.1V6',      column: 'lamp_8_str_on6'       , value:''},
+    {name: 'свет стратегия 8 старт1', scad: 'I205.0N61R7.1V1',      column: 'lamp_8_str_start1'    , value:''},
+    {name: 'свет стратегия 8 старт2', scad: 'I205.0N61R7.1V2',      column: 'lamp_8_str_start2'    , value:''},
+    {name: 'свет стратегия 8 старт3', scad: 'I205.0N61R7.1V3',      column: 'lamp_8_str_start3'    , value:''},
+    {name: 'свет стратегия 8 старт4', scad: 'I205.0N61R7.1V4',      column: 'lamp_8_str_start4'    , value:''},
+    {name: 'свет стратегия 8 старт5', scad: 'I205.0N61R7.1V5',      column: 'lamp_8_str_start5'    , value:''},
+    {name: 'свет стратегия 8 старт6', scad: 'I205.0N61R7.1V6',      column: 'lamp_8_str_start6'    , value:''},
+    {name: 'свет стратегия 8 стоп1' , scad: 'I205.0N61R8.1V1',      column: 'lamp_8_str_stop1'     , value:''},
+    {name: 'свет стратегия 8 стоп2' , scad: 'I205.0N61R8.1V2',      column: 'lamp_8_str_stop2'     , value:''},
+    {name: 'свет стратегия 8 стоп3' , scad: 'I205.0N61R8.1V3',      column: 'lamp_8_str_stop3'     , value:''},
+    {name: 'свет стратегия 8 стоп4' , scad: 'I205.0N61R8.1V4',      column: 'lamp_8_str_stop4'     , value:''},
+    {name: 'свет стратегия 8 стоп5' , scad: 'I205.0N61R8.1V5',      column: 'lamp_8_str_stop5'     , value:''},
+    {name: 'свет стратегия 8 стоп6' , scad: 'I205.0N61R8.1V6',      column: 'lamp_8_str_stop6'     , value:''},
+
+]
+
+const bobrov3_light_str_9 =[
+    {name: 'свет стратегия 9 вкл1'  , scad: 'I205.0N62R6.1V1',      column: 'lamp_9_str_on1'       , value:''},
+    {name: 'свет стратегия 9 вкл2'  , scad: 'I205.0N62R6.1V2',      column: 'lamp_9_str_on2'       , value:''},
+    {name: 'свет стратегия 9 вкл3'  , scad: 'I205.0N62R6.1V3',      column: 'lamp_9_str_on3'       , value:''},
+    {name: 'свет стратегия 9 вкл4'  , scad: 'I205.0N62R6.1V4',      column: 'lamp_9_str_on4'       , value:''},
+    {name: 'свет стратегия 9 вкл5'  , scad: 'I205.0N62R6.1V5',      column: 'lamp_9_str_on5'       , value:''},
+    {name: 'свет стратегия 9 вкл6'  , scad: 'I205.0N62R6.1V6',      column: 'lamp_9_str_on6'       , value:''},
+    {name: 'свет стратегия 9 старт1', scad: 'I205.0N62R7.1V1',      column: 'lamp_9_str_start1'    , value:''},
+    {name: 'свет стратегия 9 старт2', scad: 'I205.0N62R7.1V2',      column: 'lamp_9_str_start2'    , value:''},
+    {name: 'свет стратегия 9 старт3', scad: 'I205.0N62R7.1V3',      column: 'lamp_9_str_start3'    , value:''},
+    {name: 'свет стратегия 9 старт4', scad: 'I205.0N62R7.1V4',      column: 'lamp_9_str_start4'    , value:''},
+    {name: 'свет стратегия 9 старт5', scad: 'I205.0N62R7.1V5',      column: 'lamp_9_str_start5'    , value:''},
+    {name: 'свет стратегия 9 старт6', scad: 'I205.0N62R7.1V6',      column: 'lamp_9_str_start6'    , value:''},
+    {name: 'свет стратегия 9 стоп1' , scad: 'I205.0N62R8.1V1',      column: 'lamp_9_str_stop1'     , value:''},
+    {name: 'свет стратегия 9 стоп2' , scad: 'I205.0N62R8.1V2',      column: 'lamp_9_str_stop2'     , value:''},
+    {name: 'свет стратегия 9 стоп3' , scad: 'I205.0N62R8.1V3',      column: 'lamp_9_str_stop3'     , value:''},
+    {name: 'свет стратегия 9 стоп4' , scad: 'I205.0N62R8.1V4',      column: 'lamp_9_str_stop4'     , value:''},
+    {name: 'свет стратегия 9 стоп5' , scad: 'I205.0N62R8.1V5',      column: 'lamp_9_str_stop5'     , value:''},
+    {name: 'свет стратегия 9 стоп6' , scad: 'I205.0N62R8.1V6',      column: 'lamp_9_str_stop6'     , value:''},
+
+]
+
+const bobrov4_light_str_10 =[
+    {name: 'свет стратегия 10 вкл1'  , scad: 'I205.0N51R6.1V1',      column: 'lamp_10_str_on1'       , value:''},
+    {name: 'свет стратегия 10 вкл2'  , scad: 'I205.0N51R6.1V2',      column: 'lamp_10_str_on2'       , value:''},
+    {name: 'свет стратегия 10 вкл3'  , scad: 'I205.0N51R6.1V3',      column: 'lamp_10_str_on3'       , value:''},
+    {name: 'свет стратегия 10 вкл4'  , scad: 'I205.0N51R6.1V4',      column: 'lamp_10_str_on4'       , value:''},
+    {name: 'свет стратегия 10 вкл5'  , scad: 'I205.0N51R6.1V5',      column: 'lamp_10_str_on5'       , value:''},
+    {name: 'свет стратегия 10 вкл6'  , scad: 'I205.0N51R6.1V6',      column: 'lamp_10_str_on6'       , value:''},
+    {name: 'свет стратегия 10 старт1', scad: 'I205.0N51R7.1V1',      column: 'lamp_10_str_start1'    , value:''},
+    {name: 'свет стратегия 10 старт2', scad: 'I205.0N51R7.1V2',      column: 'lamp_10_str_start2'    , value:''},
+    {name: 'свет стратегия 10 старт3', scad: 'I205.0N51R7.1V3',      column: 'lamp_10_str_start3'    , value:''},
+    {name: 'свет стратегия 10 старт4', scad: 'I205.0N51R7.1V4',      column: 'lamp_10_str_start4'    , value:''},
+    {name: 'свет стратегия 10 старт5', scad: 'I205.0N51R7.1V5',      column: 'lamp_10_str_start5'    , value:''},
+    {name: 'свет стратегия 10 старт6', scad: 'I205.0N51R7.1V6',      column: 'lamp_10_str_start6'    , value:''},
+    {name: 'свет стратегия 10 стоп1' , scad: 'I205.0N51R8.1V1',      column: 'lamp_10_str_stop1'     , value:''},
+    {name: 'свет стратегия 10 стоп2' , scad: 'I205.0N51R8.1V2',      column: 'lamp_10_str_stop2'     , value:''},
+    {name: 'свет стратегия 10 стоп3' , scad: 'I205.0N51R8.1V3',      column: 'lamp_10_str_stop3'     , value:''},
+    {name: 'свет стратегия 10 стоп4' , scad: 'I205.0N51R8.1V4',      column: 'lamp_10_str_stop4'     , value:''},
+    {name: 'свет стратегия 10 стоп5' , scad: 'I205.0N51R8.1V5',      column: 'lamp_10_str_stop5'     , value:''},
+    {name: 'свет стратегия 10 стоп6' , scad: 'I205.0N51R8.1V6',      column: 'lamp_10_str_stop6'     , value:''},
+
+]
+
+const bobrov4_light_str_11 =[
+    {name: 'свет стратегия 11 вкл1'  , scad: 'I205.0N52R6.1V1',      column: 'lamp_11_str_on1'       , value:''},
+    {name: 'свет стратегия 11 вкл2'  , scad: 'I205.0N52R6.1V2',      column: 'lamp_11_str_on2'       , value:''},
+    {name: 'свет стратегия 11 вкл3'  , scad: 'I205.0N52R6.1V3',      column: 'lamp_11_str_on3'       , value:''},
+    {name: 'свет стратегия 11 вкл4'  , scad: 'I205.0N52R6.1V4',      column: 'lamp_11_str_on4'       , value:''},
+    {name: 'свет стратегия 11 вкл5'  , scad: 'I205.0N52R6.1V5',      column: 'lamp_11_str_on5'       , value:''},
+    {name: 'свет стратегия 11 вкл6'  , scad: 'I205.0N52R6.1V6',      column: 'lamp_11_str_on6'       , value:''},
+    {name: 'свет стратегия 11 старт1', scad: 'I205.0N52R7.1V1',      column: 'lamp_11_str_start1'    , value:''},
+    {name: 'свет стратегия 11 старт2', scad: 'I205.0N52R7.1V2',      column: 'lamp_11_str_start2'    , value:''},
+    {name: 'свет стратегия 11 старт3', scad: 'I205.0N52R7.1V3',      column: 'lamp_11_str_start3'    , value:''},
+    {name: 'свет стратегия 11 старт4', scad: 'I205.0N52R7.1V4',      column: 'lamp_11_str_start4'    , value:''},
+    {name: 'свет стратегия 11 старт5', scad: 'I205.0N52R7.1V5',      column: 'lamp_11_str_start5'    , value:''},
+    {name: 'свет стратегия 11 старт6', scad: 'I205.0N52R7.1V6',      column: 'lamp_11_str_start6'    , value:''},
+    {name: 'свет стратегия 11 стоп1' , scad: 'I205.0N52R8.1V1',      column: 'lamp_11_str_stop1'     , value:''},
+    {name: 'свет стратегия 11 стоп2' , scad: 'I205.0N52R8.1V2',      column: 'lamp_11_str_stop2'     , value:''},
+    {name: 'свет стратегия 11 стоп3' , scad: 'I205.0N52R8.1V3',      column: 'lamp_11_str_stop3'     , value:''},
+    {name: 'свет стратегия 11 стоп4' , scad: 'I205.0N52R8.1V4',      column: 'lamp_11_str_stop4'     , value:''},
+    {name: 'свет стратегия 11 стоп5' , scad: 'I205.0N52R8.1V5',      column: 'lamp_11_str_stop5'     , value:''},
+    {name: 'свет стратегия 11 стоп6' , scad: 'I205.0N52R8.1V6',      column: 'lamp_11_str_stop6'     , value:''},
+
+]
+
+const bobrov4_light_str_12 =[
+    {name: 'свет стратегия 12 вкл1'  , scad: 'I205.0N53R6.1V1',      column: 'lamp_12_str_on1'       , value:''},
+    {name: 'свет стратегия 12 вкл2'  , scad: 'I205.0N53R6.1V2',      column: 'lamp_12_str_on2'       , value:''},
+    {name: 'свет стратегия 12 вкл3'  , scad: 'I205.0N53R6.1V3',      column: 'lamp_12_str_on3'       , value:''},
+    {name: 'свет стратегия 12 вкл4'  , scad: 'I205.0N53R6.1V4',      column: 'lamp_12_str_on4'       , value:''},
+    {name: 'свет стратегия 12 вкл5'  , scad: 'I205.0N53R6.1V5',      column: 'lamp_12_str_on5'       , value:''},
+    {name: 'свет стратегия 12 вкл6'  , scad: 'I205.0N53R6.1V6',      column: 'lamp_12_str_on6'       , value:''},
+    {name: 'свет стратегия 12 старт1', scad: 'I205.0N53R7.1V1',      column: 'lamp_12_str_start1'    , value:''},
+    {name: 'свет стратегия 12 старт2', scad: 'I205.0N53R7.1V2',      column: 'lamp_12_str_start2'    , value:''},
+    {name: 'свет стратегия 12 старт3', scad: 'I205.0N53R7.1V3',      column: 'lamp_12_str_start3'    , value:''},
+    {name: 'свет стратегия 12 старт4', scad: 'I205.0N53R7.1V4',      column: 'lamp_12_str_start4'    , value:''},
+    {name: 'свет стратегия 12 старт5', scad: 'I205.0N53R7.1V5',      column: 'lamp_12_str_start5'    , value:''},
+    {name: 'свет стратегия 12 старт6', scad: 'I205.0N53R7.1V6',      column: 'lamp_12_str_start6'    , value:''},
+    {name: 'свет стратегия 12 стоп1' , scad: 'I205.0N53R8.1V1',      column: 'lamp_12_str_stop1'     , value:''},
+    {name: 'свет стратегия 12 стоп2' , scad: 'I205.0N53R8.1V2',      column: 'lamp_12_str_stop2'     , value:''},
+    {name: 'свет стратегия 12 стоп3' , scad: 'I205.0N53R8.1V3',      column: 'lamp_12_str_stop3'     , value:''},
+    {name: 'свет стратегия 12 стоп4' , scad: 'I205.0N53R8.1V4',      column: 'lamp_12_str_stop4'     , value:''},
+    {name: 'свет стратегия 12 стоп5' , scad: 'I205.0N53R8.1V5',      column: 'lamp_12_str_stop5'     , value:''},
+    {name: 'свет стратегия 12 стоп6' , scad: 'I205.0N53R8.1V6',      column: 'lamp_12_str_stop6'     , value:''},
+
+]
+
+const bobrov5_light_str_13 =[
+    {name: 'свет стратегия 13 вкл1'  , scad: 'I205.0N41R6.1V1',      column: 'lamp_13_str_on1'       , value:''},
+    {name: 'свет стратегия 13 вкл2'  , scad: 'I205.0N41R6.1V2',      column: 'lamp_13_str_on2'       , value:''},
+    {name: 'свет стратегия 13 вкл3'  , scad: 'I205.0N41R6.1V3',      column: 'lamp_13_str_on3'       , value:''},
+    {name: 'свет стратегия 13 вкл4'  , scad: 'I205.0N41R6.1V4',      column: 'lamp_13_str_on4'       , value:''},
+    {name: 'свет стратегия 13 вкл5'  , scad: 'I205.0N41R6.1V5',      column: 'lamp_13_str_on5'       , value:''},
+    {name: 'свет стратегия 13 вкл6'  , scad: 'I205.0N41R6.1V6',      column: 'lamp_13_str_on6'       , value:''},
+    {name: 'свет стратегия 13 старт1', scad: 'I205.0N41R7.1V1',      column: 'lamp_13_str_start1'    , value:''},
+    {name: 'свет стратегия 13 старт2', scad: 'I205.0N41R7.1V2',      column: 'lamp_13_str_start2'    , value:''},
+    {name: 'свет стратегия 13 старт3', scad: 'I205.0N41R7.1V3',      column: 'lamp_13_str_start3'    , value:''},
+    {name: 'свет стратегия 13 старт4', scad: 'I205.0N41R7.1V4',      column: 'lamp_13_str_start4'    , value:''},
+    {name: 'свет стратегия 13 старт5', scad: 'I205.0N41R7.1V5',      column: 'lamp_13_str_start5'    , value:''},
+    {name: 'свет стратегия 13 старт6', scad: 'I205.0N41R7.1V6',      column: 'lamp_13_str_start6'    , value:''},
+    {name: 'свет стратегия 13 стоп1' , scad: 'I205.0N41R8.1V1',      column: 'lamp_13_str_stop1'     , value:''},
+    {name: 'свет стратегия 13 стоп2' , scad: 'I205.0N41R8.1V2',      column: 'lamp_13_str_stop2'     , value:''},
+    {name: 'свет стратегия 13 стоп3' , scad: 'I205.0N41R8.1V3',      column: 'lamp_13_str_stop3'     , value:''},
+    {name: 'свет стратегия 13 стоп4' , scad: 'I205.0N41R8.1V4',      column: 'lamp_13_str_stop4'     , value:''},
+    {name: 'свет стратегия 13 стоп5' , scad: 'I205.0N41R8.1V5',      column: 'lamp_13_str_stop5'     , value:''},
+    {name: 'свет стратегия 13 стоп6' , scad: 'I205.0N41R8.1V6',      column: 'lamp_13_str_stop6'     , value:''},
+
+]
+
+const bobrov5_light_str_14 =[
+    {name: 'свет стратегия 14 вкл1'  , scad: 'I205.0N42R6.1V1',      column: 'lamp_14_str_on1'       , value:''},
+    {name: 'свет стратегия 14 вкл2'  , scad: 'I205.0N42R6.1V2',      column: 'lamp_14_str_on2'       , value:''},
+    {name: 'свет стратегия 14 вкл3'  , scad: 'I205.0N42R6.1V3',      column: 'lamp_14_str_on3'       , value:''},
+    {name: 'свет стратегия 14 вкл4'  , scad: 'I205.0N42R6.1V4',      column: 'lamp_14_str_on4'       , value:''},
+    {name: 'свет стратегия 14 вкл5'  , scad: 'I205.0N42R6.1V5',      column: 'lamp_14_str_on5'       , value:''},
+    {name: 'свет стратегия 14 вкл6'  , scad: 'I205.0N42R6.1V6',      column: 'lamp_14_str_on6'       , value:''},
+    {name: 'свет стратегия 14 старт1', scad: 'I205.0N42R7.1V1',      column: 'lamp_14_str_start1'    , value:''},
+    {name: 'свет стратегия 14 старт2', scad: 'I205.0N42R7.1V2',      column: 'lamp_14_str_start2'    , value:''},
+    {name: 'свет стратегия 14 старт3', scad: 'I205.0N42R7.1V3',      column: 'lamp_14_str_start3'    , value:''},
+    {name: 'свет стратегия 14 старт4', scad: 'I205.0N42R7.1V4',      column: 'lamp_14_str_start4'    , value:''},
+    {name: 'свет стратегия 14 старт5', scad: 'I205.0N42R7.1V5',      column: 'lamp_14_str_start5'    , value:''},
+    {name: 'свет стратегия 14 старт6', scad: 'I205.0N42R7.1V6',      column: 'lamp_14_str_start6'    , value:''},
+    {name: 'свет стратегия 14 стоп1' , scad: 'I205.0N42R8.1V1',      column: 'lamp_14_str_stop1'     , value:''},
+    {name: 'свет стратегия 14 стоп2' , scad: 'I205.0N42R8.1V2',      column: 'lamp_14_str_stop2'     , value:''},
+    {name: 'свет стратегия 14 стоп3' , scad: 'I205.0N42R8.1V3',      column: 'lamp_14_str_stop3'     , value:''},
+    {name: 'свет стратегия 14 стоп4' , scad: 'I205.0N42R8.1V4',      column: 'lamp_14_str_stop4'     , value:''},
+    {name: 'свет стратегия 14 стоп5' , scad: 'I205.0N42R8.1V5',      column: 'lamp_14_str_stop5'     , value:''},
+    {name: 'свет стратегия 14 стоп6' , scad: 'I205.0N42R8.1V6',      column: 'lamp_14_str_stop6'     , value:''},
+
+]
+
+
+
+module.exports = {
+    commonAGRO_12, commonAGRO_345, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14,
+    M4,
+    bobrov3_M432_water, bobrov4_M432_water, bobrov5_M432_water,
+    bobrov3_M203_light, bobrov4_M203_light, bobrov5_M203_light,
+    bobrov3_6_co2, bobrov3_7_co2, bobrov3_8_co2, bobrov3_9_co2,
+    bobrov4_10_co2, bobrov4_11_co2, bobrov4_12_co2,
+    bobrov5_13_co2, bobrov5_14_co2,
+    bobrov3_light_str_6, bobrov3_light_str_7, bobrov3_light_str_8, bobrov3_light_str_9,
+    bobrov4_light_str_10, bobrov4_light_str_11, bobrov4_light_str_12,
+    bobrov5_light_str_13, bobrov5_light_str_14,
 }

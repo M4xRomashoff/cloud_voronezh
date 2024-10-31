@@ -1,12 +1,33 @@
 const db = require("../modelsVoronezh");
-const {dbNames} = require("../config/complex.config")
+const {
+    dbNames,
+    dbNamesWatering,
+    COMPLEX,
+    AVG_NAMES,
+    COMPLEX_FOR_FILE,
+    MONTH
+} = require("../config/complex.config")
 const {Op} = require("sequelize");
 const {log, names} = require("debug");
 const Averages = db.avgs;
 const Alarms = db.alarms;
-const {T1, T2, T3, T4, T5, T6, T7, T8, T9, T10,
-      T11, T12, T13, T14,
-                                                } = require('../config/constArrays');
+const AlarmsList = db.alarms_list;
+const {
+    T1, T2, T3, T4, T5, T6, T7, T8, T9, T10,
+    T11, T12, T13, T14,
+    commonAGRO_12, commonAGRO_345,
+    M4,
+    bobrov3_M432_water, bobrov4_M432_water, bobrov5_M432_water,
+    bobrov3_M203_light, bobrov4_M203_light, bobrov5_M203_light,
+    bobrov3_6_co2, bobrov3_7_co2, bobrov3_8_co2, bobrov3_9_co2,
+    bobrov4_10_co2, bobrov4_11_co2, bobrov4_12_co2,
+    bobrov5_13_co2, bobrov5_14_co2,
+    bobrov3_light_str_6, bobrov3_light_str_7, bobrov3_light_str_8, bobrov3_light_str_9,
+    bobrov4_light_str_10, bobrov4_light_str_11, bobrov4_light_str_12,
+    bobrov5_light_str_13, bobrov5_light_str_14,
+
+
+} = require('../config/constArrays');
 const fs = require("fs");
 const {parse} = require("csv-parse");
 const blockNames = [
@@ -26,11 +47,14 @@ const blockNames = [
     { id: '14', table: T14},
 
 ]
+const pathToDownloads ='/home/romashov/es/public/downloads/';
 
 
 function getNamesAndValues(val){
-    let names = '('
-    let values = '('
+    let  date = new Date();
+    let sqlDate = '"' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' '+ date.getHours()+':'+date.getMinutes()+'"';
+    let names = '(createdAt, '
+    let values = '('+ sqlDate+', '
 
     if (val && val.length >0){
         val.map((item)=>{
@@ -44,31 +68,44 @@ function getNamesAndValues(val){
     return [names, values];
 }
 
-function convertLight(liHrs){
-    const arr = liHrs.split(":");
-    const n1 = parseFloat(arr[0]);
-    const n2 = parseFloat(arr[1])/60; // convert minutes to decimals
-    return n1+ n2;
+function getMskStartEndStrings(date){
+    let  nDate = new Date(date);
+    const Start =  '"' + nDate.getFullYear() + '-' + (nDate.getMonth() + 1) + '-' + nDate.getDate() + ' 00:00:00"';
+    const End   =  '"' + nDate.getFullYear() + '-' + (nDate.getMonth() + 1) + '-' + nDate.getDate() + ' 23:59:59"';
+    return [Start, End];
 }
 
-function prepareLight(item){
+function convertLight(liHrs){
+
+    // console.log('liHrs',liHrs);
+
+    if (liHrs){
+        const arr = liHrs.split(":");
+        const n1 = parseFloat(arr[0]);
+        const n2 = parseFloat(arr[1])/60; // convert minutes to decimals
+        return n1+ n2;
+    }
+    else  return 0;
+}
+
+function prepareLight(item){  //  only for contur 11   add 2-6 and average it
 
     let lData = {}
     // const l1 = ((convertLight(item.c1a) + convertLight(item.c2c))/2).toFixed(2);
     // const l2 = ((convertLight(item.c1b) + convertLight(item.c2d))/2).toFixed(2);
 
-    const l1 = convertLight(item.c1a);
-    const l2 = convertLight(item.c1b);
+    const l1 = convertLight(item.cont1a);
+    const l2 = convertLight(item.cont1b);
     let h50 ='';
     let h100 = '';
 
     if (l1 > l2) {
-        h100 = item.c1b;
-        h50 = item.c1a;
+        h100 = item.cont1b;
+        h50 = item.cont1a;
     }
     else {
-        h100 = item.c1a;
-        h50 = item.c1b;
+        h100 = item.cont1a;
+        h50 = item.cont1b;
     }
 
     if (l1 > l2){
@@ -332,7 +369,11 @@ function getPlanTDay(data, start, end){
     data.map((item)=>{
         const time = convertDateTimeToFloatTime(new Date(item.createdAt));
         if (time > start && time < end){
-            const value = parseFloat((item.calc_t).replace(',','.'));
+
+            const columnsNames = Object.keys(item);
+            const planTempName = columnsNames.find(name => name.slice(-3) === '_tv')
+
+            const value = parseFloat((item[planTempName]).replace(',','.'));
             counter +=1;
             total += value;
         }
@@ -348,7 +389,11 @@ function getPlanTNight(data, start, end){
     data.map((item)=>{
         const time = convertDateTimeToFloatTime(new Date(item.createdAt));
         if (time < start || time > end){
-            const value = parseFloat((item.calc_t).replace(',','.'));
+
+            const columnsNames = Object.keys(item);
+            const planTempName = columnsNames.find(name => name.slice(-3) === '_tv')
+
+            const value = parseFloat((item[planTempName]).replace(',','.'));
             counter +=1;
             total += value;
         }
@@ -361,7 +406,11 @@ function getPlanT24(data){
     let counter = 0;
     let total = 0;
     data.map((item)=>{
-        const value = parseFloat((item.calc_t).replace(',','.'));
+
+        const columnsNames = Object.keys(item);
+        const planTempName = columnsNames.find(name => name.slice(-3) === '_tv')
+
+        const value = parseFloat((item[planTempName]).replace(',','.'));
         counter +=1;
         total += value;
     })
@@ -838,7 +887,6 @@ function convertTimeToFloat(value){
 
 }
 
-
 function getTotalLight(out_light, avgArtLight){
     let totalLight =0;
     let out = parseFloat(out_light);
@@ -860,8 +908,10 @@ function populateAverages(times){
         if (times && times.length > 0) {
             times.map(async (block) => {
 
-                const blockId = block.block.slice(15);
-                const blockData = await oneBlockOneDayLocal('1', blockId);
+                // console.log('block',block);
+
+                const blockId = block.block.split('_')[1];
+                const blockData = await oneBlockOneDayLocal(blockId);
                 const [commonName, blockName] = Object.keys(blockData);
 
                 // console.log('blockData first',blockData[blockName][0]);
@@ -954,6 +1004,466 @@ function populateAverages(times){
     }
 }
 
+//-----------------------------------------------------------------------------------GET DATA---------------------------
+
+
+async function oneBlockOneDayM4(complex, block, date){
+
+    let tableName = 'm4';
+
+    const [StartDate, EndDate] = getMskStartEndStrings(date);
+
+    return new Promise((Resolve) => {
+        try {
+
+            const results1 = db.sequelize.query(
+                `SELECT * FROM ${tableName} WHERE createdAt >=${StartDate} AND createdAt <=${EndDate};`)
+                .then(res1 => {
+                    Resolve(res1[0]) ;
+                })
+                .catch(err => {
+                    console.log('MYSQL err', err);
+                    Resolve([])
+                })
+
+        } catch (catchError) {
+            console.log('CATCH ERROR', catchError);
+            Resolve([])
+        }
+    })
+}
+
+function blockLastData(tableName, blockId) {
+
+    return new Promise((Resolve, Reject) => {
+        try{
+            const results1 = db.sequelize.query(
+                `SELECT * FROM ${tableName} ORDER BY id DESC LIMIT 1;`)
+                .then(result => {
+
+                    Resolve({data: result[0][0], blockId: blockId})
+                })
+                .catch(err => { console.log('MYSQL err', err);
+                    Reject(err)
+                })
+
+        }
+        catch (e) {
+            Reject(e)
+        }
+    })
+}
+
+function lastDataM4(complex, blockId) {
+
+    let tableName = 'm4';
+
+    return new Promise((Resolve, Reject) => {
+        try{
+            const results1 = db.sequelize.query(
+                `SELECT * FROM ${tableName} ORDER BY id DESC LIMIT 1;`)
+                .then(result => {
+
+                    Resolve({data: result[0][0], blockId: blockId})
+                })
+                .catch(err => { console.log('MYSQL err', err);
+                    Reject(err)
+                })
+
+        }
+        catch (e) {
+            Reject(e)
+        }
+    })
+}
+
+
+
+async function oneBlockOneDayLocal(block){
+
+
+    // console.log('oneBlockOneDayLocal   complex, block',block);
+
+    return new Promise((Resolve, Reject) => {
+        const [commonName, blockName] = dbNames.find((item) => item.block === parseInt(block))?.names;
+
+        if (commonName && blockName) {
+
+            try {
+
+                let yesterday = new Date();
+                yesterday.setDate(yesterday.getDate()-1);
+                const [StartDate, EndDate] = getMskStartEndStrings(yesterday );
+
+                const results1 = db.sequelize.query(
+                    `SELECT * FROM ${commonName} WHERE createdAt >=${StartDate} AND createdAt <=${EndDate};`)
+                    .then(res1 => {
+                        const results2 = db.sequelize.query(
+                            `SELECT * FROM ${blockName} WHERE createdAt >=${StartDate} AND createdAt <=${EndDate};`)
+                            .then(res2 => {
+                                Resolve({[commonName]: res1[0], [blockName]: res2[0]})
+                            })
+                            .catch(err => {
+                                console.log('MYSQL err', err);
+                                Resolve(err)
+                            })
+                    })
+                    .catch(err => {
+                        console.log('MYSQL err', err);
+                        Resolve(err)
+                    })
+
+            } catch (catchError) {
+                console.log('CATCH ERROR', catchError);
+                Resolve(catchError)
+            }
+
+        } else Resolve('ошибка commonName && blockName');
+    })
+}
+
+async function oneBlockOneDay(complex, block, date){
+
+
+    return new Promise((Resolve, Reject) => {
+
+        const [commonName, blockName] = dbNames?.find((item) => item.complex === parseInt(complex) && item.block === parseInt(block))?.names;
+
+
+        if (commonName && blockName) {
+
+            try {
+                const [StartDate, EndDate] = getMskStartEndStrings(date);
+
+                const results1 = db.sequelize.query(
+                    `SELECT * FROM ${commonName} WHERE createdAt >=${StartDate} AND createdAt <=${EndDate};`)
+                    .then(res1 => {
+                        const results2 = db.sequelize.query(
+                            `SELECT * FROM ${blockName} WHERE createdAt >=${StartDate} AND createdAt <=${EndDate};`)
+                            .then(res2 => {
+
+                                // console.log('res1[0]-----------------',res1[0]);
+
+                                Resolve({[commonName]: res1[0], [blockName]: res2[0]})
+                            })
+                            .catch(err => {
+                                console.log('MYSQL err', err);
+                                Resolve(err)
+                            })
+                    })
+                    .catch(err => {
+                        console.log('MYSQL err', err);
+                        Resolve(err)
+                    })
+
+            } catch (catchError) {
+                console.log('CATCH ERROR', catchError);
+                Resolve(catchError)
+            }
+
+        } else Resolve('ошибка commonName && blockName');
+    })
+}
+
+async function getAlarms(complexId){
+    return new Promise((Resolve, Reject) => {
+        Alarms.findAll({where:{complexId: complexId}})
+            .then(result => Resolve(result))
+            .catch(error =>{console.log(error); Reject(error)})
+    })
+}
+
+async function alarmsList(){
+    return new Promise((Resolve, Reject) => {
+        AlarmsList.findAll()
+            .then(result => Resolve(result))
+            .catch(error =>{console.log(error); Reject(error)})
+    })
+}
+
+
+async function allBlocksLastData(complexId){
+
+
+    return new Promise((Resolve, Reject) => {
+        let blockTables = [];
+        const complexBlocks =  dbNames?.filter((item) => item.complex === parseInt(complexId));
+
+        if (complexBlocks) {
+            try {
+                complexBlocks.map((item) => {
+                    blockTables.push(blockLastData(item.names[1], item.block))
+                })
+                Promise.all(blockTables)
+                    .then((values) => {
+                        Resolve(values);
+                    })
+                    .catch((e) => {console.log('fetchClimate AVERAGE 1 ERROR', e); Reject(e) })
+
+            } catch (catchError) {
+                console.log('CATCH ERROR', catchError);
+                Reject(catchError)
+            }
+        }
+
+    })
+}
+
+async function oneBlockOneDayAvg(complex, block, date) {
+    if (complex && block && date) {
+
+        return new Promise((Resolve, Reject) => {
+            let  dateToGet = new Date(date);
+            dateToGet.setDate(dateToGet.getDate());
+            Averages.findOne({ where: {[Op.and]: [{date: dateToGet}, {blockId: block}]}})
+                .then(result => {Resolve(result)})
+                .catch(err => {console.log('MYSQL err', err);Resolve(err)
+                })
+        })
+    } return 0;
+}
+
+async function oneBlockOneMonthAvg(complex, block, date){
+    if (complex && block && date) {
+
+        return new Promise(async (Resolve, Reject) => {
+
+            const tableName = 'avgs'
+
+            let startDate = new Date(date);
+            startDate.setDate(1);
+            startDate.setDate(startDate.getDate());
+
+            let endDate = new Date(date);
+            endDate.setMonth(endDate.getMonth() + 1);
+            endDate.setDate(1);
+            endDate.setDate(endDate.getDate()-1);
+
+            const StartDate  = '"'+startDate.getFullYear()+'-'+(startDate.getMonth()+1)+'-'+startDate.getDate()+' 00:00:00"';
+            const EndDate    = '"'+endDate.getFullYear()+'-'+(endDate.getMonth()+1)+'-'+endDate.getDate()+' 00:00:00"';
+
+            const [results] = await db.sequelize.query(
+                `
+            SELECT * FROM ${tableName} WHERE date >=${StartDate} AND date <=${EndDate } AND blockId = ${block};           
+            `
+            ).catch(err => {
+                console.log('MYSQL result', err);
+                Resolve(err);
+            })
+
+            Resolve(results);
+
+        })
+    } return 0;
+}
+
+async function complexAvgOneDay(complex, date){
+    if (complex && date) {
+
+        return new Promise(async (Resolve, Reject) => {
+
+            const tableName = 'avgs'
+
+            let theDay = new Date(date);
+
+            const StartDate  = '"'+theDay.getFullYear()+'-'+(theDay.getMonth()+1)+'-'+theDay.getDate()+' 00:00:00"';
+            const EndDate    = '"'+theDay.getFullYear()+'-'+(theDay.getMonth()+1)+'-'+theDay.getDate()+' 23:59:59"';
+
+            const [results] = await db.sequelize.query(
+                `
+            SELECT * FROM ${tableName} WHERE date >=${StartDate} AND date <=${EndDate };           
+            `
+            ).catch(err => {
+                console.log('MYSQL result', err);
+                Resolve(err);
+            })
+
+            Resolve(results);
+
+        })
+    } return 0;
+}
+
+async function downloadAvgMonthFile(complex, block, date){
+
+    if (complex && block && date) {
+
+        const dataFromDB = await oneBlockOneMonthAvg(complex, block, date);
+
+        const complexName = COMPLEX_FOR_FILE.find(item => item.id === parseInt(complex)).name;
+        const fileName = complexName + '_' + block + '_' + MONTH[new Date(date).getMonth()].name + '.csv';
+
+        const result = await createFile(dataFromDB, pathToDownloads+fileName);
+
+        return {complex:complex, block: block, date:date, link: pathToDownloads, fileName: fileName}
+
+    } return {message: 'комплекс или блок или дата не верны'};
+
+}
+
+async function createFile(dataFromDB, fileName){
+    return new Promise((Resolve, Reject) => {
+
+        let writeStream = fs.createWriteStream(fileName);
+        let newLine = ['дата']
+
+        AVG_NAMES.map((item, index) => {
+            newLine.push(item.name)
+        })
+        writeStream.write(newLine.join(';')+ '\n');
+
+        dataFromDB.map((item, index) => {
+            newLine = [item['date']];
+            newLine.push(item['out_light']);
+            newLine.push(item['art_light_50']);
+            newLine.push(item['art_light_100']);
+            newLine.push(item['art_light_calc']);
+            newLine.push(item['total_light']);
+            newLine.push(item['avg_light']?.replace('.',','));
+            newLine.push(item['max_light']);
+            newLine.push(item['co2_ga']);
+            newLine.push(item['co2_ppm']?.replace('.',','));
+
+            newLine.push(item['max_wind']?.replace('.',','));
+            newLine.push(item['water_total']);
+            newLine.push(parseFloat(item['water_litr']?.replace(',','.')).toFixed(2)?.replace('.',','));
+
+            newLine.push(item['out_t_min']?.replace('.',','));
+            newLine.push(item['out_t_day_max']?.replace('.',','));
+            newLine.push(item['out_t_night_max']?.replace('.',','));
+            newLine.push(item['out_t_24_max']?.replace('.',','));
+            newLine.push(item['out_t_day_avg']?.replace('.',','));
+            newLine.push(item['out_t_night_avg']?.replace('.',','));
+            newLine.push(item['out_t_24_avg']?.replace('.',','));
+
+            newLine.push(item['plan_t_day']?.replace('.',','));
+            newLine.push(item['plan_t_night']?.replace('.',','))
+            newLine.push(item['plan_t_24']?.replace('.',','));
+
+            newLine.push(item['curr_t_min']?.replace('.',','));
+            newLine.push(item['curr_t_max']?.replace('.',','));
+            newLine.push(item['curr_t_avg_day']?.replace('.',','));
+            newLine.push(item['curr_t_avg_night']?.replace('.',','));
+            newLine.push(item['curr_t_avg_24']?.replace('.',','));
+
+            newLine.push(item['hum_max']?.replace('.',','));
+            newLine.push(item['hum_avg_day']?.replace('.',','));
+            newLine.push(item['hum_avg_night']?.replace('.',','));
+            newLine.push(item['hum_avg_24']?.replace('.',','));
+
+            newLine.push(item['hum_def_day']?.replace('.',','));
+            newLine.push(item['hum_def_night']?.replace('.',','));
+            newLine.push(item['hum_def_24']?.replace('.',','));
+
+
+            writeStream.write(newLine.join(';')+ '\n');
+        })
+
+
+        writeStream.end();
+        writeStream.on('finish', () => {
+            Resolve('finish write stream, moving along');
+        }).on('error', (err) => {
+            Resolve(err);
+        })
+    })
+}
+
+async function createFileBlocks(dataFromDB, fileName){
+    return new Promise((Resolve, Reject) => {
+
+        let writeStream = fs.createWriteStream(fileName);
+        let newLine = ['блок']
+
+        AVG_NAMES.map((item, index) => {
+            newLine.push(item.name)
+        })
+        writeStream.write(newLine.join(';')+ '\n');
+
+        dataFromDB.map((item, index) => {
+            newLine = [item['blockId']];
+            newLine.push(item['out_light']);
+            newLine.push(item['art_light_50']);
+            newLine.push(item['art_light_100']);
+            newLine.push(item['art_light_calc']);
+            newLine.push(item['total_light']);
+            newLine.push(item['avg_light']?.replace('.',','));
+            newLine.push(item['max_light']);
+            newLine.push(item['co2_ga']);
+            newLine.push(item['co2_ppm']?.replace('.',','));
+
+            newLine.push(item['max_wind']?.replace('.',','));
+            newLine.push(item['water_total']);
+            newLine.push(parseFloat(item['water_litr']?.replace(',','.')).toFixed(2)?.replace('.',','));
+
+            newLine.push(item['out_t_min']?.replace('.',','));
+            newLine.push(item['out_t_day_max']?.replace('.',','));
+            newLine.push(item['out_t_night_max']?.replace('.',','));
+            newLine.push(item['out_t_24_max']?.replace('.',','));
+            newLine.push(item['out_t_day_avg']?.replace('.',','));
+            newLine.push(item['out_t_night_avg']?.replace('.',','));
+            newLine.push(item['out_t_24_avg']?.replace('.',','));
+
+            newLine.push(item['plan_t_day']?.replace('.',','));
+            newLine.push(item['plan_t_night']?.replace('.',','))
+            newLine.push(item['plan_t_24']?.replace('.',','));
+
+            newLine.push(item['curr_t_min']?.replace('.',','));
+            newLine.push(item['curr_t_max']?.replace('.',','));
+            newLine.push(item['curr_t_avg_day']?.replace('.',','));
+            newLine.push(item['curr_t_avg_night']?.replace('.',','));
+            newLine.push(item['curr_t_avg_24']?.replace('.',','));
+
+            newLine.push(item['hum_max']?.replace('.',','));
+            newLine.push(item['hum_avg_day']?.replace('.',','));
+            newLine.push(item['hum_avg_night']?.replace('.',','));
+            newLine.push(item['hum_avg_24']?.replace('.',','));
+
+            newLine.push(item['hum_def_day']?.replace('.',','));
+            newLine.push(item['hum_def_night']?.replace('.',','));
+            newLine.push(item['hum_def_24']?.replace('.',','));
+
+
+            writeStream.write(newLine.join(';')+ '\n');
+        })
+
+
+        writeStream.end();
+        writeStream.on('finish', () => {
+            Resolve('finish write stream, moving along');
+        }).on('error', (err) => {
+            Resolve(err);
+        })
+    })
+}
+
+
+async function downloadAvgDayFile(complex, date){
+
+    if (complex && date) {
+
+        const dataFromDB = await complexAvgOneDay(complex, date);
+
+        const complexName = COMPLEX_FOR_FILE.find(item => item.id === parseInt(complex)).name;
+        const fileDate =  new Date(date).getDate()+'-'+(new Date(date).getMonth()+1)+'-'+new Date(date).getFullYear();
+        const fileName = complexName + '_' + fileDate + '.csv';
+
+
+        const result = await createFileBlocks(dataFromDB, pathToDownloads+fileName);
+
+        return {complex:complex, date:date, link: pathToDownloads, fileName: fileName}
+
+    }  return {message: 'комплекс или блок или дата не верны'};
+}
+
+
+
+
+//-----------------------------------------------------------------------------------PROCESS----------------------------
+
+
+
+
 async function processData(data){
 
     if (data && data.length){
@@ -1031,13 +1541,38 @@ async function processDataAlarms(data){
     else return 'не данных';
 }
 
+async function processDataM4(data){
+
+    if (data && data.length){
+
+        data.map((item) => {
+
+            try {
+                const tableName = item.name.toLowerCase();
+                const [names, values] = getNamesAndValues(item.values);
+                if (names && values && names.length>0 && values.length >0) {
+
+                    const results =  db.sequelize.query(
+                        `
+                    INSERT INTO ${tableName} ${names} VALUES ${values};
+
+                    `)
+                        .then(res => {return  res})
+                        .catch(err => {console.log('MYSQL err', err); return  err})
+                }
+
+            } catch (catchError) { console.log('CATCH ERROR', catchError);  return  catchError}
+        })
+    }
+    else return 'не данных';
+}
 
 async function createAvgEmpty() {
 
     let date = new Date();
     date.setHours(date.getHours()-12);
 
-    for (let i = 1; i < 29; i++) {
+    for (let i = 1; i < 15; i++) {
 
         Averages.create({
             date: date,
@@ -1098,12 +1633,12 @@ async function processDataCO(data){
             date.setDate(date.getDate()-1);
         if (data && data.length) {
             data.map((item) => {
-                //
+
                 // console.log('item------------',item);
                 // console.log('item------------',item[0]?.values[0]);
 
                 const value = item[0]?.values[0]?.value;
-                const blockId = (item[0]?.values[0]?.column).slice(4);
+                const blockId = (item[0]?.values[0]?.column).split('_')[1];
 
 
                 try {
@@ -1115,7 +1650,7 @@ async function processDataCO(data){
                                 //
                                 // console.log('CO date', date);
                                 // console.log('value',value)
-                                //
+
 
                                 average.co2_ga = value;
                                 await average.save()
@@ -1151,9 +1686,9 @@ async function processDataWater(data){
                         if (values.values && values.values.length >0){
                             values.values.map((value) =>{
                                 const val = value.value;
-                                const arr = value.column.slice(6).split('_');
-                                const blockId = arr[0];
-                                const type = arr[1]
+                                const arr = value.column.split('_');
+                                const blockId = arr[1];
+                                const type = arr[2]
 
                                 try {
 
@@ -1167,9 +1702,11 @@ async function processDataWater(data){
                                                 // console.log('val',val)
 
 
-
                                                 if (type === '1')  average.water_total = val;
                                                 if (type === '2')  average.water_litr = val;
+                                                if (type === '3')  average.water_total = (parseFloat(average.water_total.replace(',','.')) + parseFloat(val.replace(',','.'))).toFixed(3);
+                                                if (type === '4')  average.water_litr  = (parseFloat(average.water_litr.replace(',','.')) + parseFloat(val.replace(',','.'))).toFixed(3);
+
 
                                                 await average.save();
 
@@ -1208,14 +1745,14 @@ async function processDataLight(data){
                         if (values.values && values.values.length >0){
                             values.values.map((value) =>{
                                 const val = value.value;
-                                const arr = value.column.slice(5).split('_');
-                                const blockId = arr[0];
-                                const type = arr[1]
+                                const arr = value.column.split('_');
+                                const blockId = arr[1];
+                                const type = arr[2]
 
                                 let one  = comboData.find((combo) => combo.blockId === blockId )
                                 if (one) one[type] = val;
                                 else  {
-                                    one = {blockId:blockId, c1a: "", c1b: "", c2c: "", c2d: ""};
+                                    one = {blockId: blockId};
                                     one[type] = val;
                                     comboData.push(one);
                                 }
@@ -1232,6 +1769,9 @@ async function processDataLight(data){
 
                 if (comboData.length > 0 ) {
                     comboData.map((cData)=>{
+                        //
+                        // console.log('cData',cData);
+
                         const item = prepareLight(cData)
 
                         Averages.findOne({
@@ -1285,224 +1825,7 @@ async function processDataArtLight(data){
     })
 }
 
-async function oneBlockOneDayLocal(complex, block){
 
-
-    return new Promise((Resolve, Reject) => {
-        const [commonName, blockName] = dbNames.find((item) => item.complex === parseInt(complex) && item.block === parseInt(block))?.names;
-
-        let  startDate = new Date();
-        startDate.setDate(startDate.getDate()-2);
-        const endDate = new Date();
-        endDate.setDate(endDate.getDate()-1);
-
-        if (commonName && blockName) {
-
-            try {
-
-                const StartDate = '"' + startDate.getFullYear() + '-' + (startDate.getMonth() + 1) + '-' + startDate.getDate() + ' 21:00:00"';
-                const EndDate = '"' + endDate.getFullYear() + '-' + (endDate.getMonth() + 1) + '-' + endDate.getDate() + ' 20:59:59"';
-
-                const results1 = db.sequelize.query(
-                    `SELECT * FROM ${commonName} WHERE createdAt >=${StartDate} AND createdAt <=${EndDate};`)
-                    .then(res1 => {
-                        const results2 = db.sequelize.query(
-                            `SELECT * FROM ${blockName} WHERE createdAt >=${StartDate} AND createdAt <=${EndDate};`)
-                            .then(res2 => {
-                                Resolve({[commonName]: res1[0], [blockName]: res2[0]})
-                            })
-                            .catch(err => {
-                                console.log('MYSQL err', err);
-                                Resolve(err)
-                            })
-                    })
-                    .catch(err => {
-                        console.log('MYSQL err', err);
-                        Resolve(err)
-                    })
-
-            } catch (catchError) {
-                console.log('CATCH ERROR', catchError);
-                Resolve(catchError)
-            }
-
-        } else Resolve('ошибка commonName && blockName');
-    })
-}
-
-async function oneBlockOneDay(complex, block, date){
-
-
-    return new Promise((Resolve, Reject) => {
-
-        const [commonName, blockName] = dbNames?.find((item) => item.complex === parseInt(complex) && item.block === parseInt(block))?.names;
-
-
-
-        let  startDate = new Date(date);
-        if (startDate.getHours() <= 3) startDate.setDate(startDate.getDate()-2);  // подгон под Москву
-        else startDate.setDate(startDate.getDate()-1);
-        const endDate = new Date(date);
-        if (startDate.getHours() <=3) endDate.setDate(endDate.getDate()-1);
-        else endDate.setDate(endDate.getDate());
-
-        if (commonName && blockName) {
-
-            try {
-
-                const StartDate = '"' + startDate.getFullYear() + '-' + (startDate.getMonth() + 1) + '-' + startDate.getDate() + ' 21:00:00"';
-                const EndDate = '"' + endDate.getFullYear() + '-' + (endDate.getMonth() + 1) + '-' + endDate.getDate() + ' 20:59:59"';
-
-                const results1 = db.sequelize.query(
-                    `SELECT * FROM ${commonName} WHERE createdAt >=${StartDate} AND createdAt <=${EndDate};`)
-                    .then(res1 => {
-                        const results2 = db.sequelize.query(
-                            `SELECT * FROM ${blockName} WHERE createdAt >=${StartDate} AND createdAt <=${EndDate};`)
-                            .then(res2 => {
-
-                                // console.log('res1[0]-----------------',res1[0]);
-
-                                Resolve({[commonName]: res1[0], [blockName]: res2[0]})
-                            })
-                            .catch(err => {
-                                console.log('MYSQL err', err);
-                                Resolve(err)
-                            })
-                    })
-                    .catch(err => {
-                        console.log('MYSQL err', err);
-                        Resolve(err)
-                    })
-
-            } catch (catchError) {
-                console.log('CATCH ERROR', catchError);
-                Resolve(catchError)
-            }
-
-        } else Resolve('ошибка commonName && blockName');
-    })
-}
-
-
-async function getAlarms(complexId){
-    return new Promise((Resolve, Reject) => {
-       Alarms.findAll({where:{complexId: complexId}})
-           .then(result => Resolve(result))
-           .catch(error =>{console.log(error); Reject(error)})
-    })
-}
-
-
-function blockLastData(tableName, blockId) {
-
-    return new Promise((Resolve, Reject) => {
-       try{
-           const results1 = db.sequelize.query(
-               `SELECT * FROM ${tableName} ORDER BY id DESC LIMIT 1;`)
-               .then(result => {
-
-                   Resolve({data: result[0][0], blockId: blockId})
-               })
-               .catch(err => { console.log('MYSQL err', err);
-                   Reject(err)
-               })
-
-       }
-        catch (e) {
-            Reject(e)
-        }
-    })
-}
-
-async function allBlocksLastData(complexId){
-
-
-    return new Promise((Resolve, Reject) => {
-        let blockTables = [];
-        const complexBlocks =  dbNames?.filter((item) => item.complex === parseInt(complexId));
-
-        if (complexBlocks) {
-            try {
-                complexBlocks.map((item) => {
-                    blockTables.push(blockLastData(item.names[1], item.block))
-                })
-                Promise.all(blockTables)
-                    .then((values) => {
-                    Resolve(values);
-                })
-                    .catch((e) => {console.log('fetchClimate AVERAGE 1 ERROR', e); Reject(e) })
-
-            } catch (catchError) {
-                console.log('CATCH ERROR', catchError);
-                Reject(catchError)
-            }
-        }
-
-    })
-}
-
-async function oneBlockOneDayAvg(complex, block, date) {
-    if (complex && block && date) {
-
-        return new Promise((Resolve, Reject) => {
-            let  dateToGet = new Date(date);
-            dateToGet.setDate(dateToGet.getDate());
-            Averages.findOne({ where: {[Op.and]: [{date: dateToGet}, {blockId: block}]}})
-                    .then(result => {Resolve(result)})
-                    .catch(err => {console.log('MYSQL err', err);Resolve(err)
-                    })
-        })
-    } return 0;
-}
-
-async function oneBlockOneMonthAvg(complex, block, date){
-    if (complex && block && date) {
-
-        return new Promise(async (Resolve, Reject) => {
-
-            const tableName = 'avgs'
-
-            let startDate = new Date(date);
-            startDate.setDate(1);
-            startDate.setDate(startDate.getDate());
-
-            let endDate = new Date(date);
-            endDate.setMonth(endDate.getMonth() + 1);
-            endDate.setDate(1);
-            endDate.setDate(endDate.getDate()-1);
-
-            const StartDate  = '"'+startDate.getFullYear()+'-'+(startDate.getMonth()+1)+'-'+startDate.getDate()+' 00:00:00"';
-            const EndDate    = '"'+endDate.getFullYear()+'-'+(endDate.getMonth()+1)+'-'+endDate.getDate()+' 00:00:00"';
-
-            const [results] = await db.sequelize.query(
-            `
-            SELECT * FROM ${tableName} WHERE date >=${StartDate} AND date <=${EndDate } AND blockId = ${block};           
-            `
-            ).catch(err => {
-                console.log('MYSQL result', err);
-                Resolve(err);
-            })
-
-            Resolve(results);
-
-            // Averages.findAll({ where:
-            //                         {[Op.and]:
-            //                                 [{date: {
-            //                                         $between: [startDate, endDate]
-            //                                     }},
-            //
-            //                                     {blockId: block}
-            //                                 ]
-            //                         }
-            //                 })
-            //     .then(result => {
-            //         console.log('result',result?.length);
-            //         Resolve(result)})
-            //     .catch(err => {console.log('MYSQL err', err);Resolve(err)
-            //     })
-        })
-    } return 0;
-}
 
 function file_to_db(filepath, complexId) {
     return new Promise((Resolve, reject) => {
@@ -1569,18 +1892,60 @@ function getValues(filepath){
 
 
 module.exports = {
+
     processData:processData,
-    processDataAlarms:processDataAlarms,
-    getAlarms: getAlarms,
-    oneBlockOneDay:oneBlockOneDay,
-    allBlocksLastData:allBlocksLastData,
-    processDataSunRise:processDataSunRise,
+    processDataM4:processDataM4,
     processDataCO:processDataCO,
     processDataWater:processDataWater,
     processDataArtLight:processDataArtLight,
     processDataLight:processDataLight,
-    createAvgEmpty:createAvgEmpty,
+    // processDataM400:processDataM400,
+    // processDataI400:processDataI400,
+    // processData401:processData401,
+    // processData412:processData412,
+    // processData420:processData420,
+    // processDataI110:processDataI110,
+    // processDataI120:processDataI120,
+    // processDataI128:processDataI128,
+    // processDataM115:processDataM115,
+    // processDataI206:processDataI206,
+    // processDataM112:processDataM112,
+    // processDataI168:processDataI168,
+    // processDataWatering:processDataWatering,
+    processDataAlarms:processDataAlarms,
+    getAlarms: getAlarms,
+    alarmsList: alarmsList,
+
+    lastDataM4:lastDataM4,
+    oneBlockOneDayM4:oneBlockOneDayM4,
+    oneBlockOneDay:oneBlockOneDay,
+    // oneBlockOneDayWatering:oneBlockOneDayWatering,
+    // oneBlockOneDayM400:oneBlockOneDayM400,
+    // oneBlockOneDayI400:oneBlockOneDayI400,
+    // oneBlockOneDay401:oneBlockOneDay401,
+    // oneBlockOneDay412:oneBlockOneDay412,
+    // oneBlockOneDay420:oneBlockOneDay420,
+    // oneBlockOneDayI110:oneBlockOneDayI110,
+    // oneBlockOneDayI120:oneBlockOneDayI120,
+    // oneBlockOneDayI128:oneBlockOneDayI128,
+    // oneBlockOneDayM115:oneBlockOneDayM115,
+    // oneBlockOneDayI206:oneBlockOneDayI206,
+    // oneBlockOneDayM112:oneBlockOneDayM112,
+    // oneBlockOneDayI168:oneBlockOneDayI168,
     oneBlockOneDayAvg: oneBlockOneDayAvg,
     oneBlockOneMonthAvg:oneBlockOneMonthAvg,
+    complexAvgOneDay:complexAvgOneDay,
+    downloadAvgMonthFile:downloadAvgMonthFile,
+    downloadAvgDayFile:downloadAvgDayFile,
+
+    // createReportFile:createReportFile,
+    // reportOneBlockOneDayWeather:reportOneBlockOneDayWeather,
+    // reportOneBlockOneDayMain:reportOneBlockOneDayMain,
+
+    allBlocksLastData:allBlocksLastData,
+
+    createAvgEmpty:createAvgEmpty,
+
     file_to_db:file_to_db,
 };
+
